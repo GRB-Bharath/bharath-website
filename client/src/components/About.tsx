@@ -58,7 +58,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <img 
-              src="/about me image.png" 
+              src="/images/about me image.png" 
               alt="Bharath Shetty - About Me" 
               className="rounded-2xl shadow-2xl"
             />

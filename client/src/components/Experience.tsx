@@ -107,7 +107,7 @@ const Experience = () => {
                   {index === 0 ? (
                     <div className="w-48 h-48 bg-white rounded-lg flex items-center justify-center mx-auto lg:mx-0 p-2 shadow-lg">
                       <img 
-                        src="/NIIT.png" 
+                        src="/images/NIIT.png" 
                         alt="NIIT Logo" 
                         className="w-full h-full object-contain"
                       />
@@ -115,7 +115,7 @@ const Experience = () => {
                   ) : index === 1 ? (
                     <div className="w-48 h-48 bg-white rounded-lg flex items-center justify-center mx-auto lg:ml-auto lg:mr-8 p-2 shadow-lg">
                       <img 
-                        src="/NetCom.png" 
+                        src="/images/Netcom.png" 
                         alt="NetCom Learning Logo" 
                         className="w-full h-full object-contain"
                       />
@@ -123,7 +123,7 @@ const Experience = () => {
                   ) : (
                     <div className="w-48 h-48 flex items-center justify-center mx-auto lg:mx-0">
                       <img 
-                        src="/simpliearn.png" 
+                        src="/images/simpliearn.png" 
                         alt="Simplilearn Logo" 
                         className="w-full h-full object-contain rounded-lg"
                       />

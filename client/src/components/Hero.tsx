@@ -99,7 +99,7 @@ const Hero = () => {
             >
               <Button 
                 className="px-6 py-3 bg-[#00ff87] text-black font-semibold hover:bg-[#00ff87]/80 transition-all duration-300 neon-glow"
-                onClick={() => window.open('/Bharath_Resume.pdf', '_blank')}
+                onClick={() => window.open('/documents/Bharath_Resume.pdf', '_blank')}
               >
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
@@ -153,7 +153,7 @@ const Hero = () => {
               <div className="w-96 h-96 rounded-full profile-glow p-1 animate-glow">
                 <div className="w-full h-full rounded-full overflow-hidden flex items-center justify-center">
                   <img 
-                    src="/bharath.jpg" 
+                    src="/images/bharath.jpg" 
                     alt="Bharath Shetty - Senior Instructional Designer" 
                     className="w-full h-full object-cover object-center"
                     style={{ 

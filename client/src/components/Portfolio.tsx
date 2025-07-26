@@ -48,7 +48,7 @@ const Portfolio = () => {
     {
       title: "Storyboard Development",
       description: "Visual narrative planning for complex educational content and learning pathways.",
-      image: "/time.png",
+      image: "/images/time.png",
       tags: ["Storyboard", "Planning", "Microsoft PowerPoint"],
       hoverClass: "hover:neon-glow",
       projectUrl: "#",
