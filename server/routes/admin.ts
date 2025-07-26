@@ -129,18 +129,42 @@ export function registerAdminRoutes(app: Express) {
   app.post("/admin/login", (req: AuthRequest, res) => {
     const { username, password } = req.body;
     
+    console.log('Login attempt:', { username, passwordLength: password ? password.length : 0 });
+    console.log('Expected credentials:', { 
+      username: adminCredentials.username, 
+      passwordLength: adminCredentials.password.length 
+    });
+    
     if (username === adminCredentials.username && password === adminCredentials.password) {
+      console.log('Login successful, setting session');
       req.session.isAdmin = true;
-      res.redirect('/admin/contacts');
+      
+      // Save session explicitly
+      req.session.save((err: any) => {
+        if (err) {
+          console.error('Session save error:', err);
+          res.redirect('/admin/login?error=1');
+        } else {
+          console.log('Session saved successfully');
+          res.redirect('/admin/contacts');
+        }
+      });
     } else {
+      console.log('Login failed - invalid credentials');
       res.redirect('/admin/login?error=1');
     }
   });
 
   // Admin logout
   app.post("/admin/logout", (req: AuthRequest, res) => {
+    console.log('Logout requested');
     req.session.isAdmin = false;
-    res.redirect('/admin/login');
+    req.session.destroy((err: any) => {
+      if (err) {
+        console.error('Session destroy error:', err);
+      }
+      res.redirect('/admin/login');
+    });
   });
 
   // Redirect /admin to /admin/contacts

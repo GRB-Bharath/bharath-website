@@ -1,6 +1,8 @@
 import express, { type Request, Response, NextFunction } from "express";
 import session from "express-session";
 import { createRequire } from 'module';
+import fs from 'fs';
+import path from 'path';
 const require = createRequire(import.meta.url);
 const SQLiteStore = require('connect-sqlite3')(session);
 import { registerRoutes } from "./routes";
@@ -10,16 +12,33 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Ensure session database directory exists
+const sessionDbPath = process.env.SQLITE_DB_PATH || '/tmp';
+if (process.env.NODE_ENV === 'production') {
+  try {
+    if (!fs.existsSync(sessionDbPath)) {
+      fs.mkdirSync(sessionDbPath, { recursive: true });
+    }
+    console.log('Session database directory:', sessionDbPath);
+  } catch (error) {
+    console.error('Error creating session directory:', error);
+  }
+}
+
 // Session configuration
 app.use(session({
   secret: process.env.SESSION_SECRET || 'bharath-portfolio-admin-secret-key-2024',
   resave: false,
   saveUninitialized: false,
   store: process.env.NODE_ENV === 'production'
-    ? new SQLiteStore({ db: 'sessions.db', dir: process.cwd() })
+    ? new SQLiteStore({ 
+        db: 'sessions.db', 
+        dir: process.env.SQLITE_DB_PATH || '/tmp',
+        concurrentDB: true 
+      })
     : undefined,
   cookie: {
-    secure: process.env.NODE_ENV === 'production', // Set to true in production with HTTPS
+    secure: false, // Set to false for now since Render might not have HTTPS internally
     httpOnly: true,
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
