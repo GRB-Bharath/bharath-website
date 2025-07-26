@@ -62,7 +62,7 @@ const Experience = () => {
         </motion.div>
         
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#00ff87] to-[#ffb84d]"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#ff6b35] to-[#ff8f50]"></div>
           
           <div className="relative z-10 space-y-12">
             {experiences.map((exp, index) => (
@@ -74,20 +74,20 @@ const Experience = () => {
                   viewport={{ once: true }}
                   className={`flex-1 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'} mb-8 lg:mb-0`}
                 >
-                  <div className="glass-effect p-6 rounded-2xl hover:neon-glow transition-all duration-300">
+                  <div className="glass-effect p-6 rounded-2xl hover:primary-glow transition-all duration-300">
                     <div className="flex items-center mb-4">
-                      <div className={`w-4 h-4 ${index === 0 ? 'bg-[#00ff87]' : index === 1 ? 'bg-[#ffb84d]' : 'bg-[#00ff87]'} rounded-full mr-3`}></div>
+                      <div className={`w-4 h-4 ${index === 0 ? 'bg-[#ff6b35]' : index === 1 ? 'bg-[#ff8f50]' : 'bg-[#ff6b35]'} rounded-full mr-3`}></div>
                       <span className="text-sm text-gray-400">{exp.period}</span>
                       <span className="text-xs text-gray-500 ml-2">• {exp.type}</span>
                     </div>
-                    <h3 className={`text-2xl font-semibold ${index === 0 ? 'text-[#00ff87]' : index === 1 ? 'text-[#ffb84d]' : 'text-[#00ff87]'} mb-2`}>
+                    <h3 className={`text-2xl font-semibold ${index === 0 ? 'text-[#ff6b35]' : index === 1 ? 'text-[#ff8f50]' : 'text-[#ff6b35]'} mb-2`}>
                       {exp.title}
                     </h3>
-                    <p className="text-lg text-[#ffb84d] mb-2">{exp.company}</p>
-                    <p className="text-sm text-gray-400 mb-4">{exp.location}</p>
+                    <p className="text-lg text-white font-medium mb-2">{exp.company}</p>
+                    <p className="text-sm text-gray-300 mb-4">{exp.location}</p>
                     <div className="mb-4">
-                      <span className="text-sm text-gray-300">Skills: </span>
-                      <span className="text-sm text-[#00ff87]">{exp.skills.join(", ")}</span>
+                      <span className="text-sm text-gray-200 font-medium">Skills: </span>
+                      <span className="text-sm text-[#ff8f50] font-medium">{exp.skills.join(", ")}</span>
                     </div>
                     <ul className="space-y-2 text-gray-300">
                       {exp.achievements.map((achievement, achIndex) => (

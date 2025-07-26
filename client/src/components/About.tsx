@@ -19,20 +19,20 @@ import {
 
 const About = () => {
   const tools = [
-    { icon: CamtasiaIcon, name: "Camtasia", color: "text-[#00ff87]" },
+    { icon: CamtasiaIcon, name: "Camtasia", color: "text-[#ff6b35]" },
     { icon: SynthesiaIcon, name: "Synthesia", color: "text-[#ffb84d]" },
-    { icon: AdobeCaptivateIcon, name: "Adobe Captivate", color: "text-[#00ff87]" },
+    { icon: AdobeCaptivateIcon, name: "Adobe Captivate", color: "text-[#ff6b35]" },
     { icon: ArticulateStorylineIcon, name: "Articulate Storyline", color: "text-[#ffb84d]" },
-    { icon: CanvaIcon, name: "Canva", color: "text-[#00ff87]" },
+    { icon: CanvaIcon, name: "Canva", color: "text-[#ff6b35]" },
     { icon: FigmaIcon, name: "Figma", color: "text-[#ffb84d]" },
   ];
 
   const technologies = [
-    { icon: HTMLIcon, name: "HTML", color: "text-[#00ff87]" },
+    { icon: HTMLIcon, name: "HTML", color: "text-[#ff6b35]" },
     { icon: CSSIcon, name: "CSS", color: "text-[#ffb84d]" },
-    { icon: JavaScriptIcon, name: "JavaScript", color: "text-[#00ff87]" },
+    { icon: JavaScriptIcon, name: "JavaScript", color: "text-[#ff6b35]" },
     { icon: PythonIcon, name: "Python", color: "text-[#ffb84d]" },
-    { icon: SQLIcon, name: "SQL", color: "text-[#00ff87]" },
+    { icon: SQLIcon, name: "SQL", color: "text-[#ff6b35]" },
     { icon: AWSIcon, name: "AWS", color: "text-[#ffb84d]" },
   ];
 
@@ -80,7 +80,7 @@ const About = () => {
             </p>
             
             <div className="mt-8">
-              <h3 className="text-2xl font-semibold text-[#00ff87] mb-6">Tools:</h3>
+              <h3 className="text-2xl font-semibold text-[#ff6b35] mb-6">Tools:</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {tools.map((tool, index) => (
                   <motion.div
@@ -90,7 +90,7 @@ const About = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05 }}
-                    className="glass-effect p-4 rounded-lg text-center hover:neon-glow transition-all duration-300 cursor-pointer"
+                    className="glass-effect p-4 rounded-lg text-center hover:primary-glow transition-all duration-300 cursor-pointer"
                   >
                     <div className="flex justify-center mb-2">
                       <tool.icon className={`${tool.color} mx-auto`} size={32} />
@@ -102,7 +102,7 @@ const About = () => {
             </div>
 
             <div className="mt-8">
-              <h3 className="text-2xl font-semibold text-[#00ff87] mb-6">Technologies:</h3>
+              <h3 className="text-2xl font-semibold text-[#ff6b35] mb-6">Technologies:</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {technologies.map((tech, index) => (
                   <motion.div
@@ -112,7 +112,7 @@ const About = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.05 }}
-                    className="glass-effect p-4 rounded-lg text-center hover:neon-glow transition-all duration-300 cursor-pointer"
+                    className="glass-effect p-4 rounded-lg text-center hover:primary-glow transition-all duration-300 cursor-pointer"
                   >
                     <div className="flex justify-center mb-2">
                       <tech.icon className={`${tech.color} mx-auto`} size={32} />

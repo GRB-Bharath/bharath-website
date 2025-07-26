@@ -52,7 +52,7 @@ const Contact = () => {
       icon: Mail,
       title: "Email",
       value: "bharathb451@gmail.com",
-      bgColor: "bg-[#00ff87]"
+      bgColor: "bg-[#ff6b35]"
     },
     // {
     //   icon: Phone,
@@ -64,7 +64,7 @@ const Contact = () => {
       icon: MapPin,
       title: "Location",
       value: "Bangalore, Karnataka, India",
-      bgColor: "bg-[#00ff87]"
+      bgColor: "bg-[#ff6b35]"
     }
   ];
 
@@ -96,7 +96,7 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-semibold text-[#00ff87] mb-6">Get in Touch</h3>
+            <h3 className="text-2xl font-semibold text-[#ff6b35] mb-6">Get in Touch</h3>
             <p className="text-gray-300 mb-8">
               I'm always excited to collaborate on innovative eLearning projects. Whether you need instructional design, eLearning development, or UI/UX design services, let's discuss how we can bring your vision to life.
             </p>
@@ -137,7 +137,7 @@ const Contact = () => {
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 glass-effect rounded-full flex items-center justify-center hover:neon-glow transition-all duration-300"
+                    className="w-12 h-12 glass-effect rounded-full flex items-center justify-center hover:primary-glow transition-all duration-300"
                     aria-label={social.label}
                   >
                     <social.icon size={20} />
@@ -164,7 +164,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   autoComplete="name"
-                  className="w-full glass-effect border-white/20 bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-[#00ff87] focus:border-transparent"
+                  className="w-full glass-effect border-white/20 bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-[#ff6b35] focus:border-transparent"
                   placeholder="Your Name"
                 />
               </div>
@@ -179,7 +179,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   autoComplete="email"
-                  className="w-full glass-effect border-white/20 bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-[#00ff87] focus:border-transparent"
+                  className="w-full glass-effect border-white/20 bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-[#ff6b35] focus:border-transparent"
                   placeholder="your@email.com"
                 />
               </div>
@@ -194,7 +194,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   autoComplete="off"
-                  className="w-full glass-effect border-white/20 bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-[#00ff87] focus:border-transparent"
+                  className="w-full glass-effect border-white/20 bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-[#ff6b35] focus:border-transparent"
                   placeholder="Project Discussion"
                 />
               </div>
@@ -209,7 +209,7 @@ const Contact = () => {
                   required
                   autoComplete="off"
                   rows={5}
-                  className="w-full glass-effect border-white/20 bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-[#00ff87] focus:border-transparent resize-none"
+                  className="w-full glass-effect border-white/20 bg-transparent text-white placeholder-gray-400 focus:ring-2 focus:ring-[#ff6b35] focus:border-transparent resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -217,7 +217,7 @@ const Contact = () => {
               <Button 
                 type="submit" 
                 disabled={contactMutation.isPending}
-                className="w-full py-3 bg-[#00ff87] text-black font-semibold hover:bg-[#00ff87]/80 transition-all duration-300 neon-glow"
+                className="w-full py-3 bg-[#ff6b35] text-white font-semibold hover:bg-[#ff6b35]/80 transition-all duration-300 primary-glow"
               >
                 {contactMutation.isPending ? "Sending..." : "Send Message"}
               </Button>

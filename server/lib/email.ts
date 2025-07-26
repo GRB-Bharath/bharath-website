@@ -18,7 +18,7 @@ export async function sendEmailNotification(contact: Contact): Promise<void> {
     subject: `New Contact Form Submission: ${contact.subject}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #00ff87;">New Contact Form Submission</h2>
+        <h2 style="color: #ff6b35;">New Contact Form Submission</h2>
         <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
           <p><strong>Name:</strong> ${contact.name}</p>
           <p><strong>Email:</strong> ${contact.email}</p>

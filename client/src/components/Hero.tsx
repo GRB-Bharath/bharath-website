@@ -98,7 +98,7 @@ const Hero = () => {
               className="flex flex-wrap gap-4 mb-8"
             >
               <Button 
-                className="px-6 py-3 bg-[#00ff87] text-black font-semibold hover:bg-[#00ff87]/80 transition-all duration-300 neon-glow"
+                className="px-6 py-3 bg-[#ff6b35] text-white font-semibold hover:bg-[#ff6b35]/80 transition-all duration-300 primary-glow"
                 onClick={() => window.open('/documents/Bharath_Resume.pdf', '_blank')}
               >
                 <Download className="mr-2 h-4 w-4" />
@@ -134,7 +134,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className="w-12 h-12 glass-effect rounded-full flex items-center justify-center hover:text-[#00ff87] transition-all duration-300 neon-glow"
+                  className="w-12 h-12 glass-effect rounded-full flex items-center justify-center hover:text-[#ff6b35] transition-all duration-300 primary-glow"
                   aria-label={social.label}
                 >
                   <social.icon size={20} />
@@ -177,7 +177,7 @@ export default Hero;
 const style = document.createElement('style');
 style.textContent = `
   .react-typing-effect__cursor {
-    color: #00ff87;
+    color: #ff6b35;
     font-weight: bold;
     animation: blink 1s step-end infinite;
     margin-left: 2px;

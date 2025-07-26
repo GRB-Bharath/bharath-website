@@ -22,7 +22,7 @@ const Portfolio = () => {
       description: "Comprehensive learning platform develop using Adobe Captivate Tool and added Interactive Quiz.",
       image: "https://elearningimages.adobe.com/files/2023/07/Discover-all-new-Adobe-Captivate-Allen.jpg",
       tags: ["Adobe Captivate Tool", "LMS"],
-      hoverClass: "hover:neon-glow",
+      hoverClass: "hover:primary-glow",
       projectUrl: "#",
       githubUrl: "#",
       fileUrl: "https://same-ddtrjnex7nj-latest.netlify.app/",
@@ -50,7 +50,7 @@ const Portfolio = () => {
       description: "Visual narrative planning for complex educational content and learning pathways.",
       image: "/images/time.png",
       tags: ["Storyboard", "Planning", "Microsoft PowerPoint"],
-      hoverClass: "hover:neon-glow",
+      hoverClass: "hover:primary-glow",
       projectUrl: "#",
       githubUrl: "#",
       fileUrl: "https://docs.google.com/presentation/d/1k3WvGxWKdnK-a0Vsa0At6AWiZI8GBBO3K-2RnkVRUlc/edit?usp=sharing",
@@ -153,7 +153,7 @@ const Portfolio = () => {
                         opacity: hoveredProject === index ? 1 : 0,
                         transition: { duration: 0.2 }
                       }}
-                      className="bg-[#00ff87] text-black rounded-full p-2 flex items-center space-x-1 shadow-lg"
+                      className="bg-[#ff6b35] text-white rounded-full p-2 flex items-center space-x-1 shadow-lg"
                     >
                       <MousePointer className="h-3 w-3" />
                       <span className="text-xs font-semibold">Click</span>
@@ -161,10 +161,10 @@ const Portfolio = () => {
                   </div>
                   
                   {/* Enhanced animated background effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#00ff87]/10 via-transparent to-[#ffb84d]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#ff6b35]/10 via-transparent to-[#ff8f50]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Glow effect border */}
-                  <div className={`absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#00ff87]/50 transition-all duration-300`} />
+                  <div className={`absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#ff6b35]/50 transition-all duration-300`} />
                   
                   <div className="relative overflow-hidden">
                     <motion.img 
@@ -195,7 +195,7 @@ const Portfolio = () => {
                   
                   <div className="p-6 relative z-10">
                     <motion.h3 
-                      className="text-xl font-semibold text-white mb-2 group-hover:text-[#00ff87] transition-colors duration-300 flex items-center"
+                      className="text-xl font-semibold text-white mb-2 group-hover:text-[#ff6b35] transition-colors duration-300 flex items-center"
                       whileHover={{ x: 5 }}
                       style={{ pointerEvents: 'none' }} // Ensure text doesn't block clicks
                     >
@@ -205,7 +205,7 @@ const Portfolio = () => {
                         animate={{ rotate: hoveredProject === index ? 360 : 0 }}
                         transition={{ duration: 0.5 }}
                       >
-                        <Eye className="h-4 w-4 text-[#00ff87]" />
+                        <Eye className="h-4 w-4 text-[#ff6b35]" />
                       </motion.div>
                     </motion.h3>
                     
@@ -228,7 +228,7 @@ const Portfolio = () => {
                       }}
                       style={{ pointerEvents: 'none' }} // Ensure indicator doesn't block clicks
                     >
-                      <div className="flex items-center text-sm font-medium text-[#00ff87] bg-[#00ff87]/10 rounded-lg px-3 py-2 border border-[#00ff87]/20">
+                      <div className="flex items-center text-sm font-medium text-[#ff6b35] bg-[#ff6b35]/10 rounded-lg px-3 py-2 border border-[#ff6b35]/20">
                         <MousePointer className="mr-2 h-4 w-4" />
                         <span>Click anywhere to view project</span>
                       </div>
@@ -268,8 +268,8 @@ const Portfolio = () => {
                           }}
                           className={`px-3 py-1 text-black text-sm rounded-full font-medium transition-all duration-300 ${
                             tagIndex % 2 === 0 
-                              ? 'bg-[#00ff87] hover:bg-[#00ff87]/80 hover:shadow-lg hover:shadow-[#00ff87]/50' 
-                              : 'bg-[#ffb84d] hover:bg-[#ffb84d]/80 hover:shadow-lg hover:shadow-[#ffb84d]/50'
+                              ? 'bg-[#ff4e4e] hover:bg-[#ff6b35]/80 hover:shadow-lg hover:shadow-[#ff6b35]/50' 
+                              : 'bg-[#fac4a2] hover:bg-[#ff8f50]/80 hover:shadow-lg hover:shadow-[#ff8f50]/50'
                           }`}
                         >
                           {tag}

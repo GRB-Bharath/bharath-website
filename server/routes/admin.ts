@@ -32,7 +32,7 @@ export function registerAdminRoutes(app: Express) {
             max-width: 400px;
           }
           h1 { 
-            color: #00ff87; 
+            color: #ff6b35; 
             text-align: center; 
             margin-bottom: 30px;
             font-size: 24px;
@@ -43,7 +43,7 @@ export function registerAdminRoutes(app: Express) {
           label { 
             display: block; 
             margin-bottom: 5px; 
-            color: #00ff87;
+            color: #ff6b35;
             font-weight: bold;
           }
           input[type="email"], input[type="password"] { 
@@ -58,14 +58,14 @@ export function registerAdminRoutes(app: Express) {
           }
           input[type="email"]:focus, input[type="password"]:focus { 
             outline: none; 
-            border-color: #00ff87; 
-            box-shadow: 0 0 10px rgba(0, 255, 135, 0.3);
+            border-color: #ff6b35; 
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
           }
           .login-btn { 
             width: 100%; 
             padding: 12px; 
-            background: #00ff87; 
-            color: black; 
+            background: #ff6b35; 
+            color: white; 
             border: none; 
             border-radius: 6px; 
             font-size: 16px; 
@@ -74,9 +74,9 @@ export function registerAdminRoutes(app: Express) {
             transition: all 0.3s ease;
           }
           .login-btn:hover { 
-            background: #00cc6a; 
+            background: #e55a2b; 
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 135, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
           }
           .error { 
             color: #ff4444; 
@@ -97,7 +97,7 @@ export function registerAdminRoutes(app: Express) {
       <body>
         <div class="login-container">
           <div class="brand">
-            <h2 style="color: #00ff87; margin: 0;">Portfolio Admin</h2>
+            <h2 style="color: #ff6b35; margin: 0;">Portfolio Admin</h2>
             <p style="margin: 5px 0 0 0;">Bharath Shetty</p>
           </div>
           
@@ -185,7 +185,7 @@ export function registerAdminRoutes(app: Express) {
           <style>
             body { font-family: Arial, sans-serif; margin: 20px; background: #121212; color: white; }
             .container { max-width: 1200px; margin: 0 auto; }
-            h1 { color: #00ff87; text-align: center; }
+            h1 { color: #ff6b35; text-align: center; }
             .contact-card { 
               background: #1a1a1a; 
               border: 1px solid #333; 
@@ -205,7 +205,7 @@ export function registerAdminRoutes(app: Express) {
             .contact-id { color: #ffb84d; font-weight: bold; }
             .contact-date { color: #999; font-size: 0.9em; }
             .contact-field { margin: 10px 0; }
-            .field-label { color: #00ff87; font-weight: bold; }
+            .field-label { color: #ff6b35; font-weight: bold; }
             .field-value { margin-left: 10px; }
             .message-box { 
               background: #2a2a2a; 
@@ -216,15 +216,15 @@ export function registerAdminRoutes(app: Express) {
             }
             .no-contacts { text-align: center; color: #999; margin-top: 50px; }
             .refresh-btn { 
-              background: #00ff87; 
-              color: black; 
+              background: #ff6b35; 
+              color: white; 
               border: none; 
               padding: 10px 20px; 
               border-radius: 5px; 
               cursor: pointer; 
               font-weight: bold; 
             }
-            .refresh-btn:hover { background: #00cc6a; }
+            .refresh-btn:hover { background: #e55a2b; }
           </style>
         </head>
         <body>
@@ -292,7 +292,7 @@ export function registerAdminRoutes(app: Express) {
                   <div class="contact-field">
                     <span class="field-label">Email:</span>
                     <span class="field-value">
-                      <a href="mailto:${contact.email}" style="color: #00ff87;">${contact.email}</a>
+                      <a href="mailto:${contact.email}" style="color: #ff6b35;">${contact.email}</a>
                     </span>
                   </div>
                   

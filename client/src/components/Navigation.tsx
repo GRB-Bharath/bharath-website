@@ -65,10 +65,10 @@ const Navigation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-white hover:text-[#00ff87] transition-colors duration-300 relative group"
+                  className="text-white hover:text-[#ff6b35] transition-colors duration-300 relative group"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00ff87] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#ff6b35] transition-all duration-300 group-hover:w-full"></span>
                 </motion.button>
               ))}
             </div>
@@ -78,7 +78,7 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-[#00ff87] transition-colors duration-300"
+              className="text-white hover:text-[#ff6b35] transition-colors duration-300"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -103,7 +103,7 @@ const Navigation = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-3 py-2 text-white hover:text-[#00ff87] transition-colors duration-300"
+                  className="block w-full text-left px-3 py-2 text-white hover:text-[#ff6b35] transition-colors duration-300"
                 >
                   {item.label}
                 </motion.button>
