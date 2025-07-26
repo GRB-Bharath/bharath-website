@@ -1,0 +1,103 @@
+Create a personal portfolio website for Bharath Shetty, a Senior Instructional Designer & eLearning Developer, using HTML, CSS, JavaScript, React.js, with beautiful animations (Framer Motion or GSAP) and optional 3D effects (Three.js or Lottie animations). The design should be professional, modern, and highly interactive.
+
+Design References
+Use the dark futuristic design from the first reference image (neon accents, glassmorphism).
+
+Combine it with the bright, minimal design from the second reference image for sections like “About” and “Services”.
+
+The overall look should feel premium and cutting-edge.
+
+Key Requirements
+✅ Fully responsive (desktop, tablet, mobile)
+✅ Smooth page transitions and scroll animations
+✅ Neon hover effects and interactive UI elements
+✅ Light/Dark mode toggle
+✅ Professional typography and color scheme
+
+Website Sections
+1. Header
+Sticky navigation bar with links: Home, About, Services, Portfolio, Experience, Contact.
+
+Logo text: Bharath Shetty.
+
+2. Hero Section
+Full-screen layout with:
+
+Profile image inside a glowing circular frame (dark mode style).
+
+Headline: "Hi, I'm Bharath Shetty".
+
+Subtitle: "Senior Instructional Designer | eLearning Developer".
+
+Two buttons: Download Resume, Contact Me.
+
+Add subtle animated background (particles or gradient).
+
+3. About Me
+Left: Professional photo.
+
+Right: Bio text:
+"Passionate Instructional Designer with 3+ years of experience creating engaging eLearning solutions using tools like Articulate Storyline, Canva, and LMS platforms."
+
+Add grid of tools (logos for Articulate, Figma, Canva, LMS).
+
+4. Services
+Use grid cards with icons and hover effects:
+
+Instructional Design
+
+eLearning Development
+
+Storyboarding
+
+UI/UX Design
+
+Video Editing
+
+Graphic Design
+
+5. Experience
+Animated timeline or cards:
+
+Senior Instructional Designer @ Birla Opus
+
+Key Responsibilities: Storyboarding, LMS content, UI/UX, Video Editing.
+
+6. Portfolio
+Showcase 4-6 projects with hover animations.
+
+Projects: eLearning modules, storyboard samples, UI mockups, video designs.
+
+7. 3D/Animations
+Add Three.js 3D globe or Lottie animations for micro-interactions.
+
+8. Contact Section
+Contact form (Name, Email, Message, Send button).
+
+Social icons with hover glow effect.
+
+Color Palette
+Dark Background: #121212
+
+Neon Green: #00ff87
+
+Accent Orange: #ffb84d
+
+White for light mode.
+
+Tech Stack
+React.js with Vite or Create React App
+
+TailwindCSS for styling
+
+Framer Motion or GSAP for animations
+
+Three.js for 3D elements
+
+LottieFiles for animated icons
+
+✅ Output:
+Generate a complete responsive React project with all sections, animations, and interactive elements ready for deployment.
+
+🔥 Additional Note:
+Include all components in separate folders, clean code structure, and comments for easy customization.
