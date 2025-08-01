@@ -1,0 +1,446 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(240, 10%, 3.9%);
+  --muted: hsl(240, 4.8%, 95.9%);
+  --muted-foreground: hsl(240, 3.8%, 46.1%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(240, 10%, 3.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(240, 10%, 3.9%);
+  --border: hsl(240, 5.9%, 90%);
+  --input: hsl(240, 5.9%, 90%);
+  --primary: hsl(240, 5.9%, 10%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(240, 4.8%, 95.9%);
+  --secondary-foreground: hsl(240, 5.9%, 10%);
+  --accent: hsl(240, 4.8%, 95.9%);
+  --accent-foreground: hsl(240, 5.9%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 5.9%, 10%);
+  --radius: 0.5rem;
+
+  /* Custom portfolio colors - Updated to Orange/Red Theme */
+  --primary-orange: hsl(14, 100%, 60%); /* #ff6b35 */
+  --secondary-orange: hsl(22, 100%, 65%); /* #ff8f50 */
+  --accent-orange: hsl(32, 100%, 65%); /* Keep existing orange */
+  --dark-bg: hsl(0, 0%, 7%);
+  --dark-card: hsl(0, 0%, 10%);
+  --glass-bg: hsla(0, 0%, 100%, 0.1);
+}
+
+.dark {
+  --background: hsl(0, 0%, 7%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 10%);
+  --muted-foreground: hsl(0, 0%, 64.9%);
+  --popover: hsl(0, 0%, 7%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 10%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(0, 0%, 15%);
+  --input: hsl(0, 0%, 15%);
+  --primary: hsl(0, 0%, 98%);
+  --primary-foreground: hsl(0, 0%, 9%);
+  --secondary: hsl(0, 0%, 15%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(0, 0%, 15%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(0, 0%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-md border border-white/20;
+    background: var(--glass-bg);
+  }
+
+  .primary-glow {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+  }
+
+  .primary-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 107, 53, 0.8);
+  }
+
+  .secondary-glow {
+    box-shadow: 0 0 20px rgba(255, 143, 80, 0.5);
+  }
+
+  .secondary-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 143, 80, 0.8);
+  }
+
+  .orange-glow {
+    box-shadow: 0 0 20px rgba(255, 184, 77, 0.5);
+  }
+
+  .orange-glow:hover {
+    box-shadow: 0 0 30px rgba(255, 184, 77, 0.8);
+  }
+
+  /* Enhanced portfolio card effects */
+  .portfolio-card-glow {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Scroll to top button styling */
+  .scroll-top-button {
+    filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.5));
+  }
+  
+  /* Fix for clickable elements */
+  .group * {
+    pointer-events: none;
+  }
+  
+  .group {
+    pointer-events: auto !important;
+  }
+
+  .portfolio-card-glow:hover {
+    box-shadow: 
+      0 10px 40px rgba(255, 107, 53, 0.3),
+      0 0 0 1px rgba(255, 107, 53, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .portfolio-card-glow.orange:hover {
+    box-shadow: 
+      0 10px 40px rgba(255, 143, 80, 0.3),
+      0 0 0 1px rgba(255, 143, 80, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg {
+    position: relative;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    overflow: hidden;
+  }
+
+  .gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(0, 255, 135, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 184, 77, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(0, 255, 135, 0.05) 0%, transparent 50%);
+    animation: backgroundFloat 20s ease-in-out infinite;
+  }
+
+  .gradient-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300ff87' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    animation: patternMove 40s linear infinite;
+  }
+
+  .animated-bg {
+    position: relative;
+    background: linear-gradient(45deg, #0a0a0a, #1a1a2e, #16213e);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+  }
+
+  .animated-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(45deg, transparent 40%, rgba(0, 255, 135, 0.03) 50%, transparent 60%),
+      linear-gradient(-45deg, transparent 40%, rgba(255, 184, 77, 0.03) 50%, transparent 60%);
+    animation: shine 8s ease-in-out infinite;
+  }
+
+  .particles-bg {
+    position: relative;
+    background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 100%);
+    overflow: hidden;
+  }
+
+  .particles-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, rgba(0, 255, 135, 0.3), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255, 184, 77, 0.3), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(0, 255, 135, 0.2), transparent),
+      radial-gradient(1px 1px at 130px 80px, rgba(255, 184, 77, 0.2), transparent),
+      radial-gradient(2px 2px at 160px 30px, rgba(0, 255, 135, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: particleFloat 20s linear infinite;
+  }
+
+  .mesh-bg {
+    position: relative;
+    background: linear-gradient(45deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+    overflow: hidden;
+  }
+
+  .mesh-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(rgba(0, 255, 135, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 135, 0.1) 1px, transparent 1px),
+      linear-gradient(rgba(0, 255, 135, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 135, 0.05) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    animation: meshMove 30s linear infinite;
+  }
+
+  /* Starfield Effect */
+  .stars-bg {
+    position: relative;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+    overflow: hidden;
+  }
+
+  .stars-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 40px 70px, rgba(255, 107, 53, 0.6), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(2px 2px at 130px 80px, rgba(255, 143, 80, 0.4), transparent),
+      radial-gradient(1px 1px at 160px 30px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1px 1px at 200px 120px, rgba(255, 107, 53, 0.3), transparent),
+      radial-gradient(2px 2px at 240px 60px, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 280px 100px, rgba(255, 143, 80, 0.5), transparent);
+    background-repeat: repeat;
+    background-size: 300px 200px;
+    animation: starsFloat 25s linear infinite;
+  }
+
+  .stars-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(1px 1px at 60px 90px, rgba(255, 255, 255, 0.4), transparent),
+      radial-gradient(2px 2px at 120px 150px, rgba(255, 107, 53, 0.3), transparent),
+      radial-gradient(1px 1px at 180px 50px, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 220px 170px, rgba(255, 143, 80, 0.4), transparent),
+      radial-gradient(1px 1px at 10px 110px, rgba(255, 255, 255, 0.5), transparent);
+    background-repeat: repeat;
+    background-size: 250px 180px;
+    animation: starsFloat 35s linear infinite reverse;
+  }
+
+  /* Enhanced gradient-bg with stars */
+  .gradient-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b35' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(1px 1px at 25% 15%, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 75% 35%, rgba(255, 107, 53, 0.4), transparent),
+      radial-gradient(2px 2px at 45% 65%, rgba(255, 143, 80, 0.3), transparent),
+      radial-gradient(1px 1px at 85% 85%, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1px 1px at 15% 75%, rgba(255, 107, 53, 0.3), transparent);
+    background-size: 60px 60px, 400px 400px, 300px 300px, 350px 350px, 250px 250px, 320px 320px;
+    animation: patternMove 40s linear infinite, twinkle 3s ease-in-out infinite;
+  }
+
+  .profile-glow {
+    background: conic-gradient(from 0deg, var(--primary-orange), var(--secondary-orange), var(--primary-orange));
+    animation: spin 10s linear infinite;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px var(--primary-orange);
+  }
+  to {
+    box-shadow: 0 0 30px var(--primary-orange), 0 0 40px var(--primary-orange);
+  }
+}
+
+@keyframes backgroundFloat {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+    opacity: 0.4;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shine {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes patternMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(60px, 60px);
+  }
+}
+
+@keyframes meshMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100px, 100px);
+  }
+}
+
+@keyframes starsFloat {
+  0% {
+    transform: translateY(100vh) translateX(0px);
+  }
+  100% {
+    transform: translateY(-100px) translateX(50px);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translateX(-100px) translateY(100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
