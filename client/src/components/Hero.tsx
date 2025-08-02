@@ -233,7 +233,23 @@ const Hero = () => {
             >
               <Button 
                 className="px-4 sm:px-6 py-2 sm:py-3 bg-[#ff6b35] text-white font-semibold hover:bg-[#ff6b35]/80 transition-all duration-300 primary-glow text-sm sm:text-base"
-                onClick={() => window.open('/documents/Bharath_Resume.pdf', '_blank')}
+                onClick={() => {
+                  // Try direct file access first, fallback to API endpoint
+                  const link = document.createElement('a');
+                  link.href = '/documents/Bharath_Resume.pdf';
+                  link.target = '_blank';
+                  link.rel = 'noopener noreferrer';
+                  
+                  // Add error handling
+                  link.onerror = () => {
+                    console.log('Direct file access failed, trying API endpoint...');
+                    window.open('/api/resume', '_blank');
+                  };
+                  
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
               >
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
