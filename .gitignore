@@ -85,6 +85,8 @@ portfolio-video/
 
 # Personal documents and files
 *.pdf
+# Exception: Allow resume PDF
+!client/public/documents/Bharath_Resume.pdf
 *.docx
 *.pptx
 *.zip
