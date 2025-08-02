@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Download, Mail, Github, Linkedin, Twitter, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ReactTypingEffect from 'react-typing-effect';
 import { useState, useEffect } from "react";
@@ -234,25 +234,31 @@ const Hero = () => {
               <Button 
                 className="px-4 sm:px-6 py-2 sm:py-3 bg-[#ff6b35] text-white font-semibold hover:bg-[#ff6b35]/80 transition-all duration-300 primary-glow text-sm sm:text-base"
                 onClick={() => {
-                  // Try direct file access first, fallback to API endpoint
+                  // Always open in new tab for preview (both mobile and desktop)
+                  // Add timestamp to prevent caching issues
+                  const timestamp = new Date().getTime();
+                  const resumeUrl = `/documents/Bharath_Resume.pdf?v=${timestamp}`;
+                  
+                  // Create a link element for better control
                   const link = document.createElement('a');
-                  link.href = '/documents/Bharath_Resume.pdf';
+                  link.href = resumeUrl;
                   link.target = '_blank';
                   link.rel = 'noopener noreferrer';
                   
-                  // Add error handling
-                  link.onerror = () => {
-                    console.log('Direct file access failed, trying API endpoint...');
-                    window.open('/api/resume', '_blank');
-                  };
-                  
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
+                  // For mobile devices, force opening in new tab instead of downloading
+                  if (window.innerWidth <= 768) {
+                    // Mobile: Open in new tab to preview first
+                    window.open(resumeUrl, '_blank', 'noopener,noreferrer');
+                  } else {
+                    // Desktop: Use link click for normal behavior
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }
                 }}
               >
-                <Download className="mr-2 h-4 w-4" />
-                Download Resume
+                <Eye className="mr-2 h-4 w-4" />
+                View Resume
               </Button>
               <Button 
                 variant="outline"

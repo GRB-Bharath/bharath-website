@@ -48,9 +48,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       console.log(`[Resume API] Found resume at: ${resumePath}`);
       
+      // Get file stats for ETag
+      const stats = fs.statSync(resumePath);
+      const etag = `"${stats.mtime.getTime()}-${stats.size}"`;
+      
       res.setHeader('Content-Type', 'application/pdf');
+      // Force inline display (preview) instead of download
       res.setHeader('Content-Disposition', 'inline; filename="Bharath_Resume.pdf"');
-      res.setHeader('Cache-Control', 'public, max-age=3600');
+      // Prevent caching to ensure latest version is always served
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+      res.setHeader('ETag', etag);
+      
       res.sendFile(resumePath);
     } catch (error) {
       console.error("Resume download error:", error);

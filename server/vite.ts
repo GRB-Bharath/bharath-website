@@ -112,8 +112,16 @@ export function serveStatic(app: Express) {
     // Set appropriate headers for PDF
     if (filename.endsWith('.pdf')) {
       res.setHeader('Content-Type', 'application/pdf');
+      // Force browsers to display inline (preview) instead of download
       res.setHeader('Content-Disposition', `inline; filename="${filename}"`);
-      res.setHeader('Cache-Control', 'public, max-age=3600');
+      // Add cache-busting headers to prevent old resume from being cached
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+      // Add ETag based on file modification time to handle updates
+      const stats = fs.statSync(filePath);
+      const etag = `"${stats.mtime.getTime()}-${stats.size}"`;
+      res.setHeader('ETag', etag);
     }
 
     console.log(`[Documents] Serving file: ${filePath}`);
