@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import ScrollToTop from "@/components/ui/scroll-to-top";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import PortfolioPage from "@/pages/Portfolio";
 import NotFound from "@/pages/not-found";
 
@@ -19,15 +20,17 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-          <ScrollToTop />
-        </TooltipProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+            <ScrollToTop />
+          </TooltipProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

@@ -444,3 +444,52 @@
 .animate-glow {
   animation: glow 2s ease-in-out infinite alternate;
 }
+
+/* Mobile Navigation Improvements */
+@media (max-width: 768px) {
+  /* Ensure mobile menu has proper touch targets */
+  .mobile-nav-item {
+    min-height: 44px; /* iOS recommended touch target size */
+    touch-action: manipulation;
+  }
+  
+  /* Prevent text selection on mobile nav */
+  .mobile-nav-container {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Improve backdrop blur on mobile */
+  .mobile-backdrop {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  /* Ensure sidebar is properly positioned */
+  .mobile-sidebar {
+    transform: translateZ(0); /* Force hardware acceleration */
+    will-change: transform;
+  }
+}
+
+/* Improve focus visibility for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+  .focus-ring {
+    transition: box-shadow 0.2s ease-in-out;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .mobile-nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}

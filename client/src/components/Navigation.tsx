@@ -15,6 +15,32 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  // Handle escape key to close mobile menu
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen]);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -36,7 +62,7 @@ const Navigation = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-0 z-30 transition-all duration-300 ${
         scrolled ? "glass-effect" : "bg-transparent"
       }`}
     >
@@ -78,9 +104,16 @@ const Navigation = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white hover:text-[#ff6b35] transition-colors duration-300"
+              className="relative z-50 p-2 text-white hover:text-[#ff6b35] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#ff6b35] focus:ring-offset-2 focus:ring-offset-transparent rounded-md focus-ring"
+              aria-label="Toggle mobile menu"
+              aria-expanded={isOpen}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              <motion.div
+                animate={{ rotate: isOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </motion.div>
             </button>
           </div>
         </div>
@@ -89,27 +122,52 @@ const Navigation = () => {
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-effect"
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={item.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-3 py-2 text-white hover:text-[#ff6b35] transition-colors duration-300"
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/80 z-40 md:hidden mobile-backdrop"
+              onClick={() => setIsOpen(false)}
+            />
+            
+            {/* Mobile sidebar menu */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 h-full w-64 bg-black z-50 md:hidden shadow-2xl border-r border-gray-700 mobile-sidebar mobile-nav-container"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b border-gray-600 bg-black">
+                <h2 className="text-lg font-bold text-gradient">Bharath Shetty</h2>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-white hover:text-[#ff6b35] transition-colors duration-300 p-1 hover:bg-gray-800 rounded-md focus-ring"
                 >
-                  {item.label}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
+                  <X size={20} />
+                </button>
+              </div>
+              
+              {/* Navigation Items */}
+              <div className="px-3 py-4 space-y-1 bg-black">
+                {navItems.map((item, index) => (
+                  <motion.button
+                    key={item.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    onClick={() => scrollToSection(item.id)}
+                    className="mobile-nav-item block w-full text-left px-3 py-2.5 text-white hover:text-[#ff6b35] hover:bg-gray-800/70 rounded-md transition-all duration-300 font-medium text-sm focus-ring"
+                  >
+                    {item.label}
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>
