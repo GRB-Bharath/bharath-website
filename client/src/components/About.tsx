@@ -60,7 +60,9 @@ const About = () => {
             <img 
               src="/images/about me image.png" 
               alt="Bharath Shetty - About Me" 
-              className="rounded-2xl shadow-2xl"
+              className="rounded-2xl shadow-2xl w-full"
+              loading="eager"
+              decoding="async"
             />
           </motion.div>
           

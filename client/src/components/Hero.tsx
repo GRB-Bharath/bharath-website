@@ -2,55 +2,11 @@ import { motion } from "framer-motion";
 import { Download, Mail, Github, Linkedin, Twitter, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ReactTypingEffect from 'react-typing-effect';
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 const Hero = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
-  
-  // Low quality placeholder (you can replace with actual base64 of your image)
-  const placeholderSrc = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMzMzIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMjAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0iY2VudHJhbCIgZmlsbD0iI2ZmNmIzNSIgZm9udC1zaXplPSI0OCIgZm9udC1mYW1pbHk9IkFyaWFsIj5CUzwvdGV4dD4KPC9zdmc+";
 
-  // Preload the image with enhanced caching and retry logic
   useEffect(() => {
-    // Preload critical image with multiple techniques
-    const preloadImage = () => {
-      const img = new Image();
-      // Remove crossOrigin since we're loading from same origin
-      
-      const imageUrl = "/images/B.png";
-      
-      img.onload = () => {
-        setImageLoaded(true);
-        setImageError(false);
-        // Force browser to cache the image
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.href = imageUrl;
-        document.head.appendChild(link);
-      };
-      
-      img.onerror = () => {
-        setImageError(true);
-        setImageLoaded(false);
-        // Retry after 1 second
-        setTimeout(preloadImage, 1000);
-      };
-      
-      img.src = imageUrl;
-    };
-
-    // Start preloading immediately
-    preloadImage();
-
-    // Add preload link to document head for browser optimization
-    const preloadLink = document.createElement('link');
-    preloadLink.rel = 'preload';
-    preloadLink.as = 'image';
-    preloadLink.href = '/images/B.png';
-    preloadLink.fetchPriority = 'high';
-    document.head.appendChild(preloadLink);
-
     // Add CSS animations and styles
     const style = document.createElement('style');
     style.textContent = `
@@ -416,59 +372,22 @@ const Hero = () => {
                   
                   {/* Image container */}
                   <div className="relative w-full h-full rounded-full overflow-hidden bg-gradient-to-b from-gray-900/90 to-black/90">
-                    {/* Loading placeholder */}
-                    {!imageLoaded && !imageError && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-gray-800 to-gray-900">
-                        <div className="w-16 h-16 border-4 border-[#ff6b35] border-t-transparent rounded-full animate-spin"></div>
-                      </div>
-                    )}
-                    
-                    {/* Error placeholder */}
-                    {imageError && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-gray-800 to-gray-900">
-                        <div className="text-center text-gray-400">
-                          <div className="w-16 h-16 bg-[#ff6b35]/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <span className="text-2xl">👤</span>
-                          </div>
-                          <p className="text-sm">Image Loading...</p>
-                        </div>
-                      </div>
-                    )}
-                    
                     {/* Soft lighting overlay */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-[#ff6b35]/5 to-transparent mix-blend-overlay"></div>
                     
-                    {/* Main image with instant placeholder */}
+                    {/* Profile image — preloaded & compressed, loads instantly */}
                     <img 
-                      src={imageLoaded ? "/images/B.png" : placeholderSrc}
+                      src="/images/B.png"
                       alt="Bharath Shetty - Senior Instructional Designer" 
-                      className={`w-full h-full object-cover object-center transition-opacity duration-700 ${
-                        imageLoaded ? 'opacity-100' : 'opacity-70'
-                      }`}
+                      className="w-full h-full object-cover object-center"
                       style={{ 
                         objectPosition: "center center",
                         transform: "scale(1.05)",
-                        filter: imageLoaded ? "contrast(1.05) brightness(1.02)" : "contrast(0.8) brightness(0.9)"
-                      }}
-                      onLoad={() => {
-                        setImageLoaded(true);
-                        setImageError(false);
-                      }}
-                      onError={() => {
-                        setImageError(true);
-                        setImageLoaded(false);
-                        // Retry loading after 2 seconds
-                        setTimeout(() => {
-                          const img = new Image();
-                          img.onload = () => {
-                            setImageLoaded(true);
-                            setImageError(false);
-                          };
-                          img.src = "/images/B.png";
-                        }, 2000);
+                        filter: "contrast(1.05) brightness(1.02)"
                       }}
                       loading="eager"
-                      decoding="async"
+                      decoding="sync"
+                      fetchPriority="high"
                     />
                     
                     {/* Professional lighting effects */}
@@ -646,11 +565,3 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
-
-// Preload the profile image
-const preloadLink = document.createElement('link');
-preloadLink.rel = 'preload';
-preloadLink.as = 'image';
-preloadLink.href = '/images/B.png';
-preloadLink.fetchPriority = 'high';
-document.head.appendChild(preloadLink);
