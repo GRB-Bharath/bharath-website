@@ -63,7 +63,7 @@ const Portfolio = () => {
     {
       title: "Storyboard Sample – Zomato",
       description: "A detailed storyboard created for Zomato, mapping out scene-by-scene visual flow, narration, and instructional content for an eLearning module.",
-      image: "/images/time.png",
+      image: "/images/zomato-cover.png",
       tags: ["Storyboard", "Zomato", "eLearning", "PDF"],
       hoverClass: "hover:orange-glow",
       projectUrl: "#",
