@@ -76,8 +76,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertContactSchema.parse(req.body);
       const contact = await storage.createContact(validatedData);
       
-      // Send email notification
-      await sendEmailNotification(contact);
+      // Send email notification in background - don't await so it never blocks the response
+      sendEmailNotification(contact).catch(err =>
+        console.error("Background email notification failed:", err)
+      );
       
       res.json({ success: true, message: "Message sent successfully!" });
     } catch (error) {
