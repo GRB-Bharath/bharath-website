@@ -132,7 +132,7 @@ const Portfolio = () => {
           <p className="text-xl text-gray-400">Showcasing my best work and projects</p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -140,14 +140,14 @@ const Portfolio = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative h-full"
             >
               {/* Main clickable card wrapper - explicitly clickable with pointer-events-auto */}
               <div 
                 onClick={() => handleProjectClick(project)}
                 className={`glass-effect rounded-2xl overflow-hidden ${project.hoverClass} 
-                  transition-all duration-300 cursor-pointer group relative transform-gpu pointer-events-auto`}
-                style={{ zIndex: 1, position: 'relative' }} // Ensure it's above other elements and properly contains children
+                  transition-all duration-300 cursor-pointer group relative transform-gpu pointer-events-auto flex flex-col h-full`}
+                style={{ zIndex: 1, position: 'relative' }}
               >
                 <motion.div
                   whileHover={{ 
@@ -158,6 +158,7 @@ const Portfolio = () => {
                   whileTap={{ scale: 0.98 }}
                   onHoverStart={() => setHoveredProject(index)}
                   onHoverEnd={() => setHoveredProject(null)}
+                  className="flex flex-col h-full"
                 >
                   {/* Enhanced click indicator overlay */}
                   <div className="absolute top-4 right-4 z-30">
@@ -208,11 +209,11 @@ const Portfolio = () => {
                     </motion.div>
                   </div>
                   
-                  <div className="p-6 relative z-10">
+                  <div className="p-6 relative z-10 flex flex-col flex-1">
                     <motion.h3 
-                      className="text-xl font-semibold text-white mb-2 group-hover:text-[#ff6b35] transition-colors duration-300 flex items-center"
+                      className="text-xl font-semibold text-white mb-2 group-hover:text-[#ff6b35] transition-colors duration-300 flex items-start min-h-[3.5rem]"
                       whileHover={{ x: 5 }}
-                      style={{ pointerEvents: 'none' }} // Ensure text doesn't block clicks
+                      style={{ pointerEvents: 'none' }}
                     >
                       {project.title}
                       <motion.div
@@ -272,7 +273,7 @@ const Portfolio = () => {
                       </div>
                     </motion.div>
                     
-                    <div className="flex flex-wrap gap-2" style={{ pointerEvents: 'none' }}> {/* Ensure tags don't block clicks */}
+                    <div className="flex flex-wrap gap-2 mt-auto pt-2" style={{ pointerEvents: 'none' }}>
                       {project.tags.map((tag, tagIndex) => (
                         <motion.span 
                           key={tagIndex}
