@@ -3,8 +3,11 @@ import { drizzle } from 'drizzle-orm/better-sqlite3';
 import * as schema from "@shared/schema";
 import path from 'path';
 
-// Use environment variable for database path in production, fallback to local file
-const dbPath = process.env.DATABASE_URL || path.join(process.cwd(), 'portfolio.db');
+// SQLITE_DB_PATH is set to /tmp in render.yaml (writable on Render's ephemeral FS)
+// Fall back to process.cwd() for local development
+const dbDir = process.env.SQLITE_DB_PATH || process.cwd();
+const dbPath = path.join(dbDir, 'portfolio.db');
+console.log(`[DB] Using SQLite database at: ${dbPath}`);
 const sqlite = new Database(dbPath);
 
 // Enable foreign keys
