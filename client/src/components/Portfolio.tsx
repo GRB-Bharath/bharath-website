@@ -10,7 +10,8 @@ const Portfolio = () => {
     console.log('Project clicked:', project.title);
     
     if (project.fileUrl && project.fileUrl !== "") {
-      window.open(project.fileUrl, '_blank');
+      // Open PDFs inline in a new tab so they preview in the browser
+      window.open(project.fileUrl, '_blank', 'noopener,noreferrer');
     } else {
       alert(`🎯 Project: ${project.title}\n\n📅 Year: ${project.year}\n🏷️ Category: ${project.category}\n\n✅ Click functionality is working!\n💡 Add your file links to the fileUrl field to open actual project files.`);
     }
@@ -57,6 +58,20 @@ const Portfolio = () => {
       category: "Content",
       year: "2025",
       tools: ["Storyboard That", "Adobe Illustrator", "Mind Mapping"],
+      isClickable: true
+    },
+    {
+      title: "Storyboard Sample – Zomato",
+      description: "A detailed storyboard created for Zomato, mapping out scene-by-scene visual flow, narration, and instructional content for an eLearning module.",
+      image: "/images/time.png",
+      tags: ["Storyboard", "Zomato", "eLearning", "PDF"],
+      hoverClass: "hover:orange-glow",
+      projectUrl: "#",
+      githubUrl: "#",
+      fileUrl: "/documents/Storyboard Sample- Zomato.pdf",
+      category: "Storyboard",
+      year: "2025",
+      tools: ["Microsoft PowerPoint", "Instructional Design", "Storyboarding"],
       isClickable: true
     },
     // {
