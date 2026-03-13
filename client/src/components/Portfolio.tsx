@@ -35,7 +35,7 @@ const Portfolio = () => {
     {
       title: "About Us Video created for Entire Organization",
       description: "Created a compelling About Us video for the entire organization to the client AI Certs to enhance customer communication and engagement.",
-      image: "https://i.vimeocdn.com/portrait/96849241_640x640",
+      image: "/images/Aicerts.png",
       tags: ["synthesia", "UI/UX", "Adobe illustrator"],
       hoverClass: "hover:orange-glow",
       projectUrl: "#",
@@ -70,8 +70,22 @@ const Portfolio = () => {
       githubUrl: "#",
       fileUrl: "/documents/Storyboard Sample- Zomato.pdf",
       category: "Storyboard",
-      year: "2025",
+      year: "2026",
       tools: ["Microsoft PowerPoint", "Instructional Design", "Storyboarding"],
+      isClickable: true
+    },
+    {
+      title: "JP Morgan Work Sample",
+      description: "A work sample on personal and phishing attacks created for JP Morgan, focusing on awareness and learner readiness.",
+      image: "/images/JPMC.jpg",
+      tags: ["Security", "Awareness", "ILT", "PDF"],
+      hoverClass: "hover:orange-glow",
+      projectUrl: "#",
+      githubUrl: "#",
+      fileUrl: "/documents/Sample work JPMC- personal and phishing attacks.pdf",
+      category: "Security Training",
+      year: "2026",
+      tools: ["Instructional Design", "Storyboarding", "Content Development"],
       isClickable: true
     },
     // {

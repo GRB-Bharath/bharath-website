@@ -27,7 +27,7 @@ console.log('\n📂 Checking Build Structure:');
 const distExists = checkPath(path.resolve('dist'), 'Dist directory');
 const distPublicExists = checkPath(path.resolve('dist', 'public'), 'Dist/public directory');
 const distIndexExists = checkPath(path.resolve('dist', 'index.js'), 'Server bundle');
-const distHtmlExists = checkPath(path.resolve('dist', 'index.html'), 'Index HTML');
+const distHtmlExists = checkPath(path.resolve('dist', 'public', 'index.html'), 'Public index HTML');
 
 console.log('\n📄 Checking Static Files:');
 const documentsExists = checkPath(path.resolve('dist', 'public', 'documents'), 'Documents directory');
