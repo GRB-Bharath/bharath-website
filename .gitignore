@@ -85,8 +85,10 @@ portfolio-video/
 
 # Personal documents and files
 *.pdf
-# Exception: Allow resume PDF
+# Exceptions: Allow portfolio PDFs
 !client/public/documents/Bharath_Resume.pdf
+!client/public/documents/Storyboard Sample- Zomato.pdf
+!client/public/documents/Sample work JPMC- personal and phishing attacks.pdf
 *.docx
 *.pptx
 *.zip
