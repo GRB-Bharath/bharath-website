@@ -103,8 +103,8 @@ const Experience = () => {
         </motion.div>
         
         <div className="relative">
-          {/* Gradient Center Timeline */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#4F46E5] via-[#7C3AED] to-[#0284C7] dark:to-[#0EA5E9] z-0 rounded-full shadow-[0_0_12px_rgba(79,70,229,0.35)]" aria-hidden="true" />
+          {/* Gradient Center Timeline (Desktop) */}
+          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#4F46E5] via-[#7C3AED] to-[#0284C7] dark:to-[#0EA5E9] z-0 rounded-full shadow-[0_0_12px_rgba(79,70,229,0.35)]" aria-hidden="true" />
           
           <div className="relative z-20 space-y-16">
             {experiences.map((exp, index) => (
@@ -170,7 +170,7 @@ const Experience = () => {
                   viewport={{ once: true }}
                   className={`flex-1 ${index % 2 === 0 ? 'lg:pl-10' : 'lg:pr-10'} relative z-30 flex items-center justify-center`}
                 >
-                  <div className={`w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 ${exp.logoBg} rounded-3xl flex items-center justify-center ${exp.company === 'London Stock Exchange Group (LSEG)' || exp.company === 'LSEG' ? 'p-3 sm:p-4' : 'p-6 sm:p-8'} shadow-2xl border border-slate-200/90 dark:border-indigo-500/30 ${index % 2 === 0 ? 'mx-auto lg:mr-auto lg:ml-8' : 'mx-auto lg:ml-auto lg:mr-8'} hover:scale-105 transition-all duration-300 shadow-slate-300/50 dark:shadow-indigo-950/60`}>
+                  <div className={`w-48 h-48 sm:w-60 sm:h-60 lg:w-72 lg:h-72 xl:w-80 xl:h-80 ${exp.logoBg} rounded-3xl flex items-center justify-center ${exp.company === 'London Stock Exchange Group (LSEG)' || exp.company === 'LSEG' ? 'p-3 sm:p-4' : 'p-6 sm:p-8'} shadow-2xl border border-slate-200/90 dark:border-indigo-500/30 ${index % 2 === 0 ? 'mx-auto lg:mr-auto lg:ml-8' : 'mx-auto lg:ml-auto lg:mr-8'} hover:scale-105 transition-all duration-300 shadow-slate-300/50 dark:shadow-indigo-950/60`}>
                     <img 
                       src={exp.logo} 
                       alt={exp.logoAlt} 
