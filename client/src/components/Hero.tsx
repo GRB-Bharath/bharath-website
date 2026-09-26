@@ -108,18 +108,18 @@ const Hero = () => {
   const backgroundClass = 'stars-bg';
 
   return (
-    <section id="home" className={`min-h-screen flex items-center ${backgroundClass} pt-24 pb-16 relative overflow-hidden`}>
+    <section id="home" aria-label="Introduction" className="min-h-screen flex items-center gradient-bg pt-24 pb-16 relative overflow-hidden transition-colors duration-300">
       {/* Optional Shooting Stars */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-60 dark:opacity-100">
         {[...Array(3)].map((_, i) => {
           const starTop = 10 + (i * 15) % 40;
           const starDuration = 8 + (i * 2);
           const starDelay = i * 3;
-          
+
           return (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-indigo-300 rounded-full opacity-0 shadow-[0_0_8px_#4F46E5]"
+              className="absolute w-1 h-1 bg-indigo-400 rounded-full opacity-0 shadow-[0_0_8px_#4F46E5]"
               style={{
                 top: `${starTop}%`,
                 left: `-100px`,
@@ -137,30 +137,31 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center min-h-[calc(100vh-6rem)]">
           <motion.div
-            initial={{ opacity: 0, y: -50 }}
+            initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="order-2 lg:order-1 pl-2 sm:pl-4 md:pl-6 lg:pl-8 text-center sm:text-left"
           >
-            {/* Lumina Executive Badge */}
+            {/* Status Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-indigo-500/30 backdrop-blur-md mb-6 shadow-sm"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-slate-900/80 border border-slate-200/90 dark:border-indigo-500/30 backdrop-blur-md mb-6 shadow-sm"
             >
-              <span className="w-2 h-2 rounded-full bg-[#4F46E5] animate-pulse shadow-[0_0_8px_#4F46E5]"></span>
-              <span className="text-xs font-mono text-indigo-300 font-medium">Learning Consultant @ LSEG • Bengaluru, India</span>
+              <span className="w-2 h-2 rounded-full bg-[#4F46E5] animate-pulse shadow-[0_0_8px_#4F46E5]" aria-hidden="true" />
+              <span className="text-xs font-mono text-indigo-700 dark:text-indigo-300 font-medium">Learning Consultant @ LSEG • Bengaluru, India</span>
             </motion.div>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
+            {/* Semantic h1 for WCAG AA */}
+            <motion.h1
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-headline mb-6 sm:mb-8 mt-2 leading-tight whitespace-nowrap tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-headline mb-6 sm:mb-8 mt-2 leading-tight tracking-tight text-slate-900 dark:text-white"
             >
               Hi, I'm <ReactTypingEffect
-                text={["Bharath Shetty"]} 
+                text={["Bharath Shetty"]}
                 speed={100}
                 eraseSpeed={100}
                 eraseDelay={3000}
@@ -170,43 +171,44 @@ const Hero = () => {
                   return <span className="text-gradient">{text}</span>;
                 }}
               />
-            </motion.h2>
-            
+            </motion.h1>
+
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="text-lg sm:text-xl lg:text-2xl text-slate-200 mb-6 sm:mb-8 leading-relaxed font-headline font-semibold"
+              className="text-lg sm:text-xl lg:text-2xl text-slate-800 dark:text-slate-200 mb-6 sm:mb-8 leading-relaxed font-headline font-semibold"
             >
-              Learning Consultant <span className="text-indigo-400">/</span> Instructional Designer <span className="text-violet-400">|</span> AI-Assisted Front-End Developer
+              Learning Consultant <span className="text-indigo-600 dark:text-indigo-400" aria-hidden="true">/</span> Instructional Designer <span className="text-violet-600 dark:text-violet-400" aria-hidden="true">|</span> AI-Assisted Learning Solutions
             </motion.p>
-            
+
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="text-base sm:text-lg text-slate-400 mb-8 max-w-2xl leading-relaxed font-sans"
+              className="text-base sm:text-lg text-slate-700 dark:text-slate-300 mb-8 max-w-2xl leading-relaxed font-sans"
             >
               Designing scalable Learning Experience Platforms (LXP) supporting 35,000+ colleagues across LSEG. Combining instructional excellence with AI pair-programming, interactive authoring (Articulate 360), and modern front-end technologies.
             </motion.p>
-            
+
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
               className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-8"
             >
-              <Button 
-                className="px-6 py-3.5 bg-gradient-to-r from-[#4F46E5] to-[#6366F1] hover:from-[#4338CA] hover:to-[#4F46E5] text-white font-headline font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-indigo-500/35 hover:shadow-indigo-500/50 hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base border border-indigo-400/30"
+              <Button
+                aria-label="View Bharath's Resume PDF in a new tab"
+                className="px-6 py-3.5 bg-gradient-to-r from-[#4F46E5] to-[#6366F1] hover:from-[#4338CA] hover:to-[#4F46E5] text-white font-headline font-semibold rounded-xl transition-all duration-300 shadow-md shadow-indigo-500/35 hover:shadow-indigo-500/50 hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base border border-indigo-400/30 cursor-pointer focus-visible:ring-2 focus-visible:ring-indigo-500"
                 onClick={() => {
                   const timestamp = new Date().getTime();
                   const resumeUrl = `/documents/Bharath_Kumar_GR_Resume.pdf?v=${timestamp}`;
-                  
+
                   const link = document.createElement('a');
                   link.href = resumeUrl;
                   link.target = '_blank';
                   link.rel = 'noopener noreferrer';
-                  
+
                   if (window.innerWidth <= 768) {
                     window.open(resumeUrl, '_blank', 'noopener,noreferrer');
                   } else {
@@ -216,48 +218,49 @@ const Hero = () => {
                   }
                 }}
               >
-                <Eye className="mr-2 h-4 w-4" />
+                <Eye className="mr-2 h-4 w-4" aria-hidden="true" />
                 View Resume
               </Button>
-              <Button 
+              <Button
                 variant="outline"
-                className="px-6 py-3.5 bg-slate-900/80 hover:bg-indigo-950/40 text-slate-200 border border-indigo-500/30 hover:border-indigo-500/60 font-headline font-medium rounded-xl transition-all duration-300 text-sm sm:text-base hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
+                aria-label="Navigate to contact section"
+                className="px-6 py-3.5 bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-indigo-950/40 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-indigo-500/30 hover:border-indigo-500/60 font-headline font-medium rounded-xl transition-all duration-300 text-sm sm:text-base hover:-translate-y-0.5 active:translate-y-0 shadow-sm cursor-pointer focus-visible:ring-2 focus-visible:ring-indigo-500"
                 onClick={scrollToContact}
               >
-                <Mail className="mr-2 h-4 w-4 text-indigo-400" />
+                <Mail className="mr-2 h-4 w-4 text-indigo-600 dark:text-indigo-400" aria-hidden="true" />
                 Contact Me
               </Button>
             </motion.div>
-            
+
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
               className="flex justify-center sm:justify-start space-x-3 sm:space-x-4"
             >
               {[
-                { icon: Linkedin, href: "https://www.linkedin.com/in/bharathkumargr", label: "LinkedIn" },
-                { icon: Twitter, href: "https://x.com/Bharath44618051", label: "Twitter" },
-                { icon: Github, href: "https://github.com/GRB-Bharath", label: "GitHub" },
-                { icon: Mail, href: "mailto:bharathb451@gmail.com", label: "Email" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/bharathkumargr", label: "LinkedIn (opens in new tab)" },
+                { icon: Twitter, href: "https://x.com/Bharath44618051", label: "Twitter (opens in new tab)" },
+                { icon: Github, href: "https://github.com/GRB-Bharath", label: "GitHub (opens in new tab)" },
+                { icon: Mail, href: "mailto:bharathb451@gmail.com", label: "Email Bharath directly" },
               ].map((social) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-900/80 border border-indigo-500/20 text-slate-300 hover:text-white hover:border-indigo-500/50 hover:bg-indigo-600/20 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-indigo-500/25"
+                  className="w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-slate-900/80 border border-slate-300/80 dark:border-indigo-500/20 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:border-indigo-500/50 hover:bg-indigo-50 dark:hover:bg-indigo-600/20 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-indigo-500/25 focus-visible:ring-2 focus-visible:ring-indigo-500"
                   aria-label={social.label}
                 >
-                  <social.icon size={16} className="sm:w-5 sm:h-5" />
+                  <social.icon size={16} className="sm:w-5 sm:h-5" aria-hidden="true" />
                 </motion.a>
               ))}
             </motion.div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -269,14 +272,14 @@ const Hero = () => {
                 {/* Animated Lumina Multi-Color Gradient Orbs */}
                 <div className="absolute w-full h-full pointer-events-none">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#4F46E5]/20 via-[#7C3AED]/20 to-[#0EA5E9]/20 rounded-full blur-3xl animate-pulse-slow"></div>
-                  
+
                   {/* Concentric Lumina Rings */}
                   {[...Array(3)].map((_, index) => {
                     const baseSize = 280;
                     const circleSize = baseSize + index * 35;
                     const circleDuration = 8 + index * 2;
                     const circleDelay = index * 0.5;
-                    
+
                     return (
                       <div
                         key={index}
@@ -294,7 +297,7 @@ const Hero = () => {
                       />
                     );
                   })}
-                  
+
                   {/* Sparkles - Lumina Indigo, Violet, Cyan */}
                   {[...Array(12)].map((_, index) => {
                     const angle = (index * 30) * (Math.PI / 180);
@@ -305,7 +308,7 @@ const Hero = () => {
                     const animationDuration = 2 + (index % 3) * 0.5;
                     const animationDelay = index * 0.15;
                     const color = index % 3 === 0 ? '#4F46E5' : index % 3 === 1 ? '#7C3AED' : '#0EA5E9';
-                    
+
                     return (
                       <div
                         key={`sparkle-${index}`}
@@ -324,7 +327,7 @@ const Hero = () => {
                           animationFillMode: 'both'
                         }}
                       >
-                        <div 
+                        <div
                           className="w-full h-full rounded-full shadow-[0_0_15px_currentColor]"
                           style={{ backgroundColor: color, color: color }}
                         ></div>
@@ -338,17 +341,17 @@ const Hero = () => {
                 <div className="relative w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[340px] md:h-[340px] lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden backdrop-blur-xl bg-gradient-to-br from-indigo-500/15 via-slate-900/90 to-violet-500/15 p-3 sm:p-4 hover:scale-102 transition-transform duration-700 shadow-2xl shadow-indigo-950/50 border border-indigo-500/30">
                   {/* Border glow */}
                   <div className="absolute inset-0 rounded-full border border-indigo-400/30"></div>
-                  
+
                   {/* Image container */}
                   <div className="relative w-full h-full rounded-full overflow-hidden bg-gradient-to-b from-slate-900/95 to-[#0B0F19]">
                     <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-transparent to-violet-500/10 mix-blend-overlay"></div>
-                    
+
                     {/* Profile image */}
-                    <img 
+                    <img
                       src="/images/B.png"
-                      alt="Bharath Shetty - Learning Consultant & Instructional Designer" 
+                      alt="Bharath Shetty - Learning Consultant & Instructional Designer"
                       className="w-full h-full object-cover object-center"
-                      style={{ 
+                      style={{
                         objectPosition: "center center",
                         transform: "scale(1.05)",
                         filter: "contrast(1.05) brightness(1.02)"
@@ -357,35 +360,35 @@ const Hero = () => {
                       decoding="sync"
                       fetchPriority="high"
                     />
-                    
+
                     <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-transparent to-black/40"></div>
                     <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-indigo-500/10 to-transparent"></div>
                   </div>
                 </div>
 
-                {/* Orbiting Executive Badges */}
-                <motion.div 
+                {/* Orbiting Badges */}
+                <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 }}
-                  className="absolute -bottom-2 -left-4 sm:-left-6 px-3 py-1.5 rounded-full bg-slate-900/90 border border-indigo-500/40 backdrop-blur-xl shadow-xl shadow-indigo-950/40 hidden sm:flex items-center gap-1.5"
+                  className="absolute -bottom-2 -left-4 sm:-left-6 px-3 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/90 border border-slate-200 dark:border-indigo-500/40 backdrop-blur-xl shadow-lg dark:shadow-xl shadow-slate-200/50 dark:shadow-indigo-950/40 hidden sm:flex items-center gap-1.5"
                 >
-                  <span className="w-2 h-2 rounded-full bg-[#4F46E5]"></span>
-                  <span className="text-[11px] font-mono font-medium text-slate-200">LXP Dashboard</span>
+                  <span className="w-2 h-2 rounded-full bg-[#4F46E5]" aria-hidden="true" />
+                  <span className="text-[11px] font-mono font-medium text-slate-800 dark:text-slate-200">LXP Dashboard</span>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1 }}
-                  className="absolute -top-2 -right-2 sm:-right-4 px-3 py-1.5 rounded-full bg-slate-900/90 border border-violet-500/40 backdrop-blur-xl shadow-xl shadow-purple-950/40 hidden sm:flex items-center gap-1.5"
+                  className="absolute -top-2 -right-2 sm:-right-4 px-3 py-1.5 rounded-full bg-white/95 dark:bg-slate-900/90 border border-slate-200 dark:border-violet-500/40 backdrop-blur-xl shadow-lg dark:shadow-xl shadow-slate-200/50 dark:shadow-purple-950/40 hidden sm:flex items-center gap-1.5"
                 >
-                  <span className="w-2 h-2 rounded-full bg-[#7C3AED]"></span>
-                  <span className="text-[11px] font-mono font-medium text-slate-200">Synthesia AI</span>
+                  <span className="w-2 h-2 rounded-full bg-[#7C3AED]" aria-hidden="true" />
+                  <span className="text-[11px] font-mono font-medium text-slate-800 dark:text-slate-200">Synthesia AI</span>
                 </motion.div>
-                
-                <div className="absolute top-1/2 left-0 w-12 h-[1px] bg-gradient-to-r from-indigo-500/50 to-transparent transform -translate-x-16"></div>
-                <div className="absolute top-1/2 right-0 w-12 h-[1px] bg-gradient-to-l from-violet-500/50 to-transparent transform translate-x-16"></div>
+
+                <div className="absolute top-1/2 left-0 w-12 h-[1px] bg-gradient-to-r from-indigo-500/50 to-transparent transform -translate-x-16" aria-hidden="true" />
+                <div className="absolute top-1/2 right-0 w-12 h-[1px] bg-gradient-to-l from-violet-500/50 to-transparent transform translate-x-16" aria-hidden="true" />
               </div>
             </div>
           </motion.div>

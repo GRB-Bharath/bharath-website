@@ -81,7 +81,7 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 bg-[#0B0F19] relative">
+    <section id="experience" aria-labelledby="experience-heading" className="py-24 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -90,18 +90,21 @@ const Experience = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-300 font-mono text-xs mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-700 dark:text-indigo-300 font-mono text-xs mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" aria-hidden="true" />
             <span>CAREER TRAJECTORY</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold font-headline text-gradient mb-4 tracking-tight">Professional Experience</h2>
-          <p className="text-lg text-slate-400 font-sans max-w-2xl mx-auto">
+          <h2 id="experience-heading" className="text-4xl sm:text-5xl font-bold font-headline text-gradient mb-4 tracking-tight">
+            Professional Experience
+          </h2>
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto">
             Demonstrated track record of delivering enterprise-scale learning platforms, AI innovations, and global programs
           </p>
         </motion.div>
         
         <div className="relative">
-          {/* Lumina Gradient Center Timeline */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#4F46E5] via-[#7C3AED] to-[#0EA5E9] z-0 rounded-full shadow-[0_0_15px_rgba(79,70,229,0.5)]"></div>
+          {/* Gradient Center Timeline */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#4F46E5] via-[#7C3AED] to-[#0284C7] dark:to-[#0EA5E9] z-0 rounded-full shadow-[0_0_12px_rgba(79,70,229,0.35)]" aria-hidden="true" />
           
           <div className="relative z-20 space-y-16">
             {experiences.map((exp, index) => (
@@ -114,44 +117,44 @@ const Experience = () => {
                   viewport={{ once: true }}
                   className={`flex-1 ${index % 2 === 0 ? 'lg:pr-10' : 'lg:pl-10'} mb-8 lg:mb-0 relative z-30 w-full`}
                 >
-                  <div className="bg-slate-900/85 p-7 sm:p-8 rounded-2xl border border-indigo-500/20 hover:border-indigo-400/50 hover:shadow-2xl hover:shadow-indigo-950/50 transition-all duration-300 backdrop-blur-xl relative group">
+                  <div className="bg-white/90 dark:bg-slate-900/85 p-7 sm:p-8 rounded-2xl border border-slate-200/90 dark:border-indigo-500/20 hover:border-indigo-500/50 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-indigo-950/50 transition-all duration-300 backdrop-blur-xl relative group">
                     {/* Period & Type Header */}
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-indigo-500/15">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-200 dark:border-indigo-500/15">
                       <div className="flex items-center space-x-2">
-                        <span className={`w-3 h-3 rounded-full ${index % 2 === 0 ? 'bg-[#4F46E5] shadow-[0_0_8px_#4F46E5]' : 'bg-[#7C3AED] shadow-[0_0_8px_#7C3AED]'}`}></span>
-                        <span className="text-xs font-mono font-medium text-indigo-300 bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">
+                        <span className={`w-3 h-3 rounded-full ${index % 2 === 0 ? 'bg-[#4F46E5] shadow-[0_0_8px_#4F46E5]' : 'bg-[#7C3AED] shadow-[0_0_8px_#7C3AED]'}`} aria-hidden="true" />
+                        <span className="text-xs font-mono font-medium text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-200 dark:border-indigo-500/20">
                           {exp.period}
                         </span>
                       </div>
-                      <span className="text-xs font-mono text-slate-400">
+                      <span className="text-xs font-mono text-slate-600 dark:text-slate-400 font-medium">
                         {exp.type}
                       </span>
                     </div>
 
                     {/* Role Title & Company */}
-                    <h3 className={`text-xl sm:text-2xl font-bold font-headline mb-1.5 ${index % 2 === 0 ? 'text-white group-hover:text-indigo-200' : 'text-white group-hover:text-purple-200'} transition-colors`}>
+                    <h3 className={`text-xl sm:text-2xl font-bold font-headline mb-1.5 text-slate-900 dark:text-white transition-colors`}>
                       {exp.title}
                     </h3>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <p className="text-base sm:text-lg font-semibold text-indigo-400 font-headline">{exp.company}</p>
-                      <span className="text-slate-600">•</span>
-                      <p className="text-xs sm:text-sm text-slate-400 font-sans">{exp.location}</p>
+                      <p className="text-base sm:text-lg font-semibold text-indigo-600 dark:text-indigo-400 font-headline">{exp.company}</p>
+                      <span className="text-slate-400 dark:text-slate-600" aria-hidden="true">•</span>
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-sans">{exp.location}</p>
                     </div>
 
                     {/* Skills Chips */}
                     <div className="mb-5 flex flex-wrap gap-1.5 pt-2">
                       {exp.skills.map((skill, sIdx) => (
-                        <span key={sIdx} className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-slate-800/90 text-indigo-300/90 border border-indigo-500/15">
+                        <span key={sIdx} className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800/90 text-indigo-800 dark:text-indigo-300/90 border border-slate-200 dark:border-indigo-500/15">
                           {skill}
                         </span>
                       ))}
                     </div>
 
                     {/* Achievements List */}
-                    <ul className="space-y-2.5 text-sm sm:text-base text-slate-300 font-sans">
+                    <ul className="space-y-2.5 text-sm sm:text-base text-slate-700 dark:text-slate-300 font-sans">
                       {exp.achievements.map((achievement, achIndex) => (
                         <li key={achIndex} className="flex items-start">
-                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 mr-2.5 flex-shrink-0"></span>
+                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 mt-2 mr-2.5 flex-shrink-0" aria-hidden="true" />
                           <span className="leading-relaxed">{achievement}</span>
                         </li>
                       ))}
@@ -167,7 +170,7 @@ const Experience = () => {
                   viewport={{ once: true }}
                   className={`flex-1 ${index % 2 === 0 ? 'lg:pl-10' : 'lg:pr-10'} relative z-30 flex items-center justify-center`}
                 >
-                  <div className={`w-44 h-44 sm:w-48 sm:h-48 ${exp.logoBg} rounded-2xl flex items-center justify-center p-3.5 shadow-2xl border border-indigo-500/30 ${index % 2 === 0 ? 'mx-auto lg:mr-auto lg:ml-8' : 'mx-auto lg:ml-auto lg:mr-8'} hover:scale-105 transition-all duration-300 shadow-indigo-950/40`}>
+                  <div className={`w-44 h-44 sm:w-48 sm:h-48 ${exp.logoBg} rounded-2xl flex items-center justify-center p-3.5 shadow-xl border border-slate-200/90 dark:border-indigo-500/30 ${index % 2 === 0 ? 'mx-auto lg:mr-auto lg:ml-8' : 'mx-auto lg:ml-auto lg:mr-8'} hover:scale-105 transition-all duration-300 shadow-slate-200/50 dark:shadow-indigo-950/40`}>
                     <img 
                       src={exp.logo} 
                       alt={exp.logoAlt} 

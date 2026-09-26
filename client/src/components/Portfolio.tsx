@@ -133,7 +133,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-24 bg-[#0B0F19] relative">
+    <section id="portfolio" aria-labelledby="portfolio-heading" className="py-24 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -142,11 +142,14 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-300 font-mono text-xs mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-700 dark:text-indigo-300 font-mono text-xs mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" aria-hidden="true" />
             <span>SELECTED CLIENT & WORK SAMPLES</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold font-headline text-gradient mb-4 tracking-tight">Featured Portfolio</h2>
-          <p className="text-lg text-slate-400 font-sans max-w-2xl mx-auto">
+          <h2 id="portfolio-heading" className="text-4xl sm:text-5xl font-bold font-headline text-gradient mb-4 tracking-tight">
+            Featured Portfolio
+          </h2>
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto">
             Live interactive modules, video productions, and instructional storyboards for tier-1 enterprises
           </p>
         </motion.div>
@@ -162,8 +165,17 @@ const Portfolio = () => {
               className="relative h-full"
             >
               <div 
+                role="button"
+                tabIndex={0}
+                aria-label={`Open sample: ${project.title} (${project.category})`}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleProjectClick(project);
+                  }
+                }}
                 onClick={() => handleProjectClick(project)}
-                className="bg-slate-900/85 rounded-2xl overflow-hidden border border-indigo-500/20 hover:border-indigo-400/50 hover:shadow-2xl hover:shadow-indigo-950/50 transition-all duration-300 cursor-pointer group relative transform-gpu pointer-events-auto flex flex-col h-full backdrop-blur-xl"
+                className="bg-white/90 dark:bg-slate-900/85 rounded-2xl overflow-hidden border border-slate-200/90 dark:border-indigo-500/20 hover:border-indigo-500/50 hover:shadow-xl dark:hover:shadow-2xl dark:hover:shadow-indigo-950/50 transition-all duration-300 cursor-pointer group relative transform-gpu pointer-events-auto flex flex-col h-full backdrop-blur-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 style={{ zIndex: 1, position: 'relative' }}
               >
                 <motion.div
@@ -187,7 +199,7 @@ const Portfolio = () => {
                       }}
                       className="bg-[#4F46E5] text-white rounded-full px-3 py-1 flex items-center space-x-1.5 shadow-lg shadow-indigo-500/40 text-xs font-mono font-medium"
                     >
-                      <MousePointer className="h-3 w-3" />
+                      <MousePointer className="h-3 w-3" aria-hidden="true" />
                       <span>Preview</span>
                     </motion.div>
                   </div>
@@ -196,19 +208,19 @@ const Portfolio = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   
                   {/* Image container */}
-                  <div className="relative overflow-hidden h-52 bg-slate-950">
+                  <div className="relative overflow-hidden h-52 bg-slate-900">
                     <motion.img 
                       src={project.image} 
-                      alt={project.title}
+                      alt={`Preview of ${project.title}`}
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                       style={{ pointerEvents: 'none' }}
                     />
                     
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
                     
                     {/* Category pill */}
                     <div className="absolute top-4 left-4" style={{ pointerEvents: 'none' }}>
-                      <span className="px-3 py-1 bg-slate-900/90 text-indigo-300 text-xs font-mono rounded-full backdrop-blur-md border border-indigo-500/30">
+                      <span className="px-3 py-1 bg-white/90 dark:bg-slate-900/90 text-indigo-700 dark:text-indigo-300 text-xs font-mono font-medium rounded-full backdrop-blur-md border border-slate-200 dark:border-indigo-500/30">
                         {project.category} • {project.year}
                       </span>
                     </div>
@@ -216,15 +228,15 @@ const Portfolio = () => {
                   
                   <div className="p-6 relative z-10 flex flex-col flex-1">
                     <h3 
-                      className="text-lg sm:text-xl font-bold font-headline text-white mb-2 group-hover:text-indigo-300 transition-colors duration-300 flex items-start justify-between min-h-[3.25rem]"
+                      className="text-lg sm:text-xl font-bold font-headline text-slate-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors duration-300 flex items-start justify-between min-h-[3.25rem]"
                       style={{ pointerEvents: 'none' }}
                     >
                       <span>{project.title}</span>
-                      <Eye className="h-4 w-4 text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1 ml-2" />
+                      <Eye className="h-4 w-4 text-indigo-600 dark:text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1 ml-2" aria-hidden="true" />
                     </h3>
                     
                     <p 
-                      className="text-slate-300 text-sm leading-relaxed mb-4 font-sans line-clamp-3"
+                      className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-4 font-sans line-clamp-3"
                       style={{ pointerEvents: 'none' }}
                     >
                       {project.description}
@@ -232,21 +244,21 @@ const Portfolio = () => {
 
                     {/* Quick view indicator */}
                     <div className="mt-auto mb-4" style={{ pointerEvents: 'none' }}>
-                      <div className="flex items-center text-xs font-mono text-indigo-400 bg-indigo-500/10 rounded-lg px-3 py-2 border border-indigo-500/20 group-hover:border-indigo-400/40 transition-colors">
-                        <MousePointer className="mr-2 h-3.5 w-3.5" />
+                      <div className="flex items-center text-xs font-mono text-indigo-700 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-500/10 rounded-lg px-3 py-2 border border-indigo-200 dark:border-indigo-500/20 group-hover:border-indigo-400/40 transition-colors">
+                        <MousePointer className="mr-2 h-3.5 w-3.5" aria-hidden="true" />
                         <span>Click to open full work sample</span>
                       </div>
                     </div>
                     
-                    {/* Lumina Tag Pills */}
-                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-indigo-500/15" style={{ pointerEvents: 'none' }}>
+                    {/* Tag Pills */}
+                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-200 dark:border-indigo-500/15" style={{ pointerEvents: 'none' }}>
                       {project.tags.map((tag, tagIndex) => (
                         <span 
                           key={tagIndex}
                           className={`px-2.5 py-1 text-xs font-mono font-medium rounded-md border transition-all duration-200 ${
                             tagIndex % 2 === 0 
-                              ? 'bg-indigo-500/15 text-indigo-300 border-indigo-500/25 group-hover:border-indigo-400/50' 
-                              : 'bg-purple-500/15 text-purple-300 border-purple-500/25 group-hover:border-purple-400/50'
+                              ? 'bg-indigo-50 dark:bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-500/25 group-hover:border-indigo-400/50' 
+                              : 'bg-purple-50 dark:bg-purple-500/15 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-500/25 group-hover:border-purple-400/50'
                           }`}
                         >
                           {tag}
