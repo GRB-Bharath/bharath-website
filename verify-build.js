@@ -31,7 +31,7 @@ const distHtmlExists = checkPath(path.resolve('dist', 'public', 'index.html'), '
 
 console.log('\n📄 Checking Static Files:');
 const documentsExists = checkPath(path.resolve('dist', 'public', 'documents'), 'Documents directory');
-const resumeExists = checkPath(path.resolve('dist', 'public', 'documents', 'Bharath_Resume.pdf'), 'Resume PDF');
+const resumeExists = checkPath(path.resolve('dist', 'public', 'documents', 'Bharath_Kumar_GR_Resume.pdf'), 'Resume PDF');
 const imagesExists = checkPath(path.resolve('dist', 'public', 'images'), 'Images directory');
 
 console.log('\n📋 Summary:');

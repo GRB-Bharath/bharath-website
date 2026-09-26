@@ -193,7 +193,7 @@ const Hero = () => {
                   // Always open in new tab for preview (both mobile and desktop)
                   // Add timestamp to prevent caching issues
                   const timestamp = new Date().getTime();
-                  const resumeUrl = `/documents/Bharath_Resume.pdf?v=${timestamp}`;
+                  const resumeUrl = `/documents/Bharath_Kumar_GR_Resume.pdf?v=${timestamp}`;
                   
                   // Create a link element for better control
                   const link = document.createElement('a');

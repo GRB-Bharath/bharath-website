@@ -44,6 +44,13 @@ export async function setupVite(app: Express, server: Server) {
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
 
+    // Don't serve index.html for static file requests (PDFs, images, etc.)
+    // Let Vite's built-in static middleware handle them instead
+    const staticExtensions = /\.(pdf|png|jpg|jpeg|gif|svg|webp|ico|mp4|webm|ogg|mp3|wav|woff2?|ttf|eot|css|js|json|xml|txt)(\?.*)?$/i;
+    if (staticExtensions.test(url)) {
+      return next();
+    }
+
     try {
       const clientTemplate = path.resolve(
         import.meta.dirname,
@@ -70,7 +77,7 @@ export async function setupVite(app: Express, server: Server) {
 export function serveStatic(app: Express) {
   const distPath = path.resolve(import.meta.dirname, "..", "dist", "public");
   const documentsPath = path.resolve(distPath, "documents");
-  const resumePath = path.resolve(documentsPath, "Bharath_Resume.pdf");
+  const resumePath = path.resolve(documentsPath, "Bharath_Kumar_GR_Resume.pdf");
 
   console.log(`[Static] Server dirname: ${import.meta.dirname}`);
   console.log(`[Static] Process cwd: ${process.cwd()}`);

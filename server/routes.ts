@@ -12,7 +12,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/resume", (req, res) => {
     try {
       let resumePath;
-      const resumeFilename = "Bharath_Resume.pdf";
+      const resumeFilename = "Bharath_Kumar_GR_Resume.pdf";
       
       console.log(`[Resume API] NODE_ENV: ${process.env.NODE_ENV}`);
       console.log(`[Resume API] Process CWD: ${process.cwd()}`);
@@ -54,7 +54,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       res.setHeader('Content-Type', 'application/pdf');
       // Force inline display (preview) instead of download
-      res.setHeader('Content-Disposition', 'inline; filename="Bharath_Resume.pdf"');
+      res.setHeader('Content-Disposition', 'inline; filename="Bharath_Kumar_GR_Resume.pdf"');
       // Prevent caching to ensure latest version is always served
       res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
       res.setHeader('Pragma', 'no-cache');
