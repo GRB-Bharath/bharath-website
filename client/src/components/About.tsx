@@ -65,13 +65,6 @@ const About = () => {
     { icon: GoogleStitchIcon, name: "Google Stitch", color: "text-violet-600 dark:text-[#C4B5FD]" },
   ];
 
-  // Core competency proficiencies
-  const proficiencies = [
-    { label: "Instructional Design & LXP Architecture", percent: 96, color: "bg-[#4F46E5]" },
-    { label: "AI Pair-Programming & Video Generation (Synthesia)", percent: 92, color: "bg-[#7C3AED]" },
-    { label: "Interactive Courseware (Rise & Storyline 360)", percent: 88, color: "bg-[#0284C7] dark:bg-[#0EA5E9]" },
-  ];
-
   return (
     <section id="about" aria-labelledby="about-heading" className="py-24 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -115,43 +108,6 @@ const About = () => {
               />
             </div>
 
-            {/* Core Competency Metric Level Card */}
-            <div className="bg-white/90 dark:bg-slate-900/80 p-6 rounded-2xl border border-slate-200/90 dark:border-indigo-500/20 backdrop-blur-xl shadow-lg shadow-slate-200/40 dark:shadow-indigo-950/20">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-sm font-headline font-semibold text-slate-900 dark:text-slate-200">
-                  Core Competency Indices
-                </h3>
-                <span className="text-xs font-mono text-indigo-700 dark:text-indigo-400 font-medium">
-                  Verified Skills
-                </span>
-              </div>
-              <div className="space-y-4">
-                {proficiencies.map((item, idx) => (
-                  <div key={idx} className="space-y-1.5">
-                    <div className="flex justify-between text-xs font-medium">
-                      <span className="text-slate-700 dark:text-slate-300">{item.label}</span>
-                      <span className="font-mono text-slate-800 dark:text-slate-300 font-semibold">{item.percent}%</span>
-                    </div>
-                    <div 
-                      className="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5"
-                      role="progressbar"
-                      aria-valuenow={item.percent}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                      aria-label={item.label}
-                    >
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${item.percent}%` }}
-                        transition={{ duration: 1, delay: idx * 0.2 }}
-                        viewport={{ once: true }}
-                        className={`h-full rounded-full ${item.color} shadow-sm`}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </motion.div>
           
           {/* Right Column: Narrative & Tool Suites */}
