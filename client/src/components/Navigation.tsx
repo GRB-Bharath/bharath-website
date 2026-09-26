@@ -120,20 +120,22 @@ const Navigation = () => {
               aria-label="Main Navigation"
               className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center pointer-events-auto"
             >
-              <div className="flex items-center space-x-1 lg:space-x-1.5 bg-slate-100/90 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-200/80 dark:border-indigo-500/20 backdrop-blur-md shadow-sm">
-                {navItems.map((item, index) => (
-                  <motion.button
-                    key={item.id}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    onClick={() => scrollToSection(item.id)}
-                    className="px-3 lg:px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:bg-white dark:hover:bg-indigo-600/15 rounded-full transition-all duration-200 relative group focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none cursor-pointer"
-                  >
-                    {item.label}
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] transition-all duration-300 group-hover:w-3/5 rounded-full" aria-hidden="true" />
-                  </motion.button>
-                ))}
+              <div className="nav-gradient-capsule p-[1.5px] rounded-full">
+                <div className="flex items-center space-x-1 lg:space-x-1.5 bg-white/95 dark:bg-[#0B0F19]/90 p-1.5 rounded-full backdrop-blur-xl">
+                  {navItems.map((item, index) => (
+                    <motion.button
+                      key={item.id}
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      onClick={() => scrollToSection(item.id)}
+                      className="px-3 lg:px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-white hover:bg-indigo-50/80 dark:hover:bg-indigo-600/20 rounded-full transition-all duration-200 relative group focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none cursor-pointer"
+                    >
+                      {item.label}
+                      <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] dark:from-[#6366F1] dark:to-[#A855F7] transition-all duration-300 group-hover:w-3/5 rounded-full" aria-hidden="true" />
+                    </motion.button>
+                  ))}
+                </div>
               </div>
             </nav>
 
