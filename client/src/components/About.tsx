@@ -114,10 +114,10 @@ const About = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" aria-hidden="true" />
             <span>CORE EXPERTISE & PROFILE</span>
           </div>
-          <h2 id="about-heading" className="text-4xl sm:text-5xl font-bold font-headline text-gradient mb-4 tracking-tight">
+          <h2 id="about-heading" className="text-4xl sm:text-5xl font-bold font-headline text-gradient pb-2 mb-6 tracking-tight leading-normal sm:leading-tight">
             About Me
           </h2>
-          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto leading-relaxed">
             Blending instructional methodology with AI-assisted software engineering to build transformative, enterprise-grade learning systems
           </p>
         </motion.div>

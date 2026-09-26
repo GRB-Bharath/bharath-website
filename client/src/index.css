@@ -207,6 +207,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline-block;
+    padding-bottom: 0.2em;
+    padding-top: 0.05em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
   .dark .text-gradient {
@@ -214,6 +219,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline-block;
+    padding-bottom: 0.2em;
+    padding-top: 0.05em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
   .text-gradient-primary {
@@ -221,6 +231,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline-block;
+    padding-bottom: 0.2em;
+    padding-top: 0.05em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
   .dark .text-gradient-primary {
@@ -228,6 +243,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    display: inline-block;
+    padding-bottom: 0.2em;
+    padding-top: 0.05em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
   /* Executive Button Variants */

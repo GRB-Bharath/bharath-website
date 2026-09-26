@@ -104,10 +104,10 @@ const Contact = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" aria-hidden="true" />
             Connect & Collaborate
           </span>
-          <h2 id="contact-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold font-headline text-gradient mb-4">
+          <h2 id="contact-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold font-headline text-gradient pb-2 mb-6 tracking-tight leading-normal sm:leading-tight">
             Let's Build Something Exceptional
           </h2>
-          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto leading-relaxed">
             Ready to pioneer scalable LXP platforms, intelligent instructional systems, or AI-powered learning media? Let's start a conversation.
           </p>
         </motion.div>

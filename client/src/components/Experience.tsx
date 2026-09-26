@@ -94,10 +94,10 @@ const Experience = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" aria-hidden="true" />
             <span>CAREER TRAJECTORY</span>
           </div>
-          <h2 id="experience-heading" className="text-4xl sm:text-5xl font-bold font-headline text-gradient mb-4 tracking-tight">
+          <h2 id="experience-heading" className="text-4xl sm:text-5xl font-bold font-headline text-gradient pb-2 mb-6 tracking-tight leading-normal sm:leading-tight">
             Professional Experience
           </h2>
-          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto leading-relaxed">
             Demonstrated track record of delivering enterprise-scale learning platforms, AI innovations, and global programs
           </p>
         </motion.div>

@@ -146,10 +146,10 @@ const Portfolio = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" aria-hidden="true" />
             <span>SELECTED CLIENT & WORK SAMPLES</span>
           </div>
-          <h2 id="portfolio-heading" className="text-4xl sm:text-5xl font-bold font-headline text-gradient mb-4 tracking-tight">
+          <h2 id="portfolio-heading" className="text-4xl sm:text-5xl font-bold font-headline text-gradient pb-2 mb-6 tracking-tight leading-normal sm:leading-tight">
             Featured Portfolio
           </h2>
-          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto leading-relaxed">
             Live interactive modules, video productions, and instructional storyboards for tier-1 enterprises
           </p>
         </motion.div>
