@@ -42,10 +42,10 @@ const ScrollToTop = () => {
             onClick={scrollToTop}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="w-12 h-12 rounded-full bg-gradient-to-br from-[#00ff87] to-[#60efff] flex items-center justify-center text-black shadow-lg hover:scale-110 transition-transform duration-300"
+            className="w-12 h-12 rounded-full bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] hover:from-[#4338CA] hover:to-[#6D28D9] flex items-center justify-center text-white shadow-lg shadow-indigo-500/35 hover:shadow-indigo-500/50 border border-indigo-400/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 transition-all duration-300"
             aria-label="Scroll to top"
           >
-            <ChevronUp className="h-6 w-6" />
+            <ChevronUp className="h-6 w-6 stroke-[2.5]" />
           </motion.button>
         </motion.div>
       )}
