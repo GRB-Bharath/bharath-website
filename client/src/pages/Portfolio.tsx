@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 const PortfolioPage = () => {
   return (
-    <div className="min-h-screen bg-[#121212] text-white">
+    <div className="min-h-screen bg-[#0B0F19] lumina-dot-grid text-slate-100 font-sans selection:bg-indigo-500 selection:text-white">
       <Navigation />
       <Hero />
       <About />

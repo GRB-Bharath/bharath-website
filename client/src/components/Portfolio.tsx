@@ -133,8 +133,8 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-20 gradient-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="py-24 bg-[#0B0F19] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -142,8 +142,13 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gradient mb-4">My Portfolio</h2>
-          <p className="text-xl text-gray-400">Showcasing my best work and projects</p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-300 font-mono text-xs mb-3">
+            <span>SELECTED CLIENT & WORK SAMPLES</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold font-headline text-gradient mb-4 tracking-tight">Featured Portfolio</h2>
+          <p className="text-lg text-slate-400 font-sans max-w-2xl mx-auto">
+            Live interactive modules, video productions, and instructional storyboards for tier-1 enterprises
+          </p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
@@ -156,25 +161,22 @@ const Portfolio = () => {
               viewport={{ once: true }}
               className="relative h-full"
             >
-              {/* Main clickable card wrapper - explicitly clickable with pointer-events-auto */}
               <div 
                 onClick={() => handleProjectClick(project)}
-                className={`glass-effect rounded-2xl overflow-hidden ${project.hoverClass} 
-                  transition-all duration-300 cursor-pointer group relative transform-gpu pointer-events-auto flex flex-col h-full`}
+                className="bg-slate-900/85 rounded-2xl overflow-hidden border border-indigo-500/20 hover:border-indigo-400/50 hover:shadow-2xl hover:shadow-indigo-950/50 transition-all duration-300 cursor-pointer group relative transform-gpu pointer-events-auto flex flex-col h-full backdrop-blur-xl"
                 style={{ zIndex: 1, position: 'relative' }}
               >
                 <motion.div
                   whileHover={{ 
-                    scale: 1.05,
-                    rotateY: 3,
-                    transition: { duration: 0.3 }
+                    scale: 1.02,
+                    transition: { duration: 0.25 }
                   }}
                   whileTap={{ scale: 0.98 }}
                   onHoverStart={() => setHoveredProject(index)}
                   onHoverEnd={() => setHoveredProject(null)}
                   className="flex flex-col h-full"
                 >
-                  {/* Enhanced click indicator overlay */}
+                  {/* Click indicator badge */}
                   <div className="absolute top-4 right-4 z-30">
                     <motion.div 
                       initial={{ scale: 0, opacity: 0 }}
@@ -183,127 +185,72 @@ const Portfolio = () => {
                         opacity: hoveredProject === index ? 1 : 0,
                         transition: { duration: 0.2 }
                       }}
-                      className="bg-[#ff6b35] text-white rounded-full p-2 flex items-center space-x-1 shadow-lg"
+                      className="bg-[#4F46E5] text-white rounded-full px-3 py-1 flex items-center space-x-1.5 shadow-lg shadow-indigo-500/40 text-xs font-mono font-medium"
                     >
                       <MousePointer className="h-3 w-3" />
-                      <span className="text-xs font-semibold">Click</span>
+                      <span>Preview</span>
                     </motion.div>
                   </div>
                   
-                  {/* Enhanced animated background effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#ff6b35]/10 via-transparent to-[#ff8f50]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Hover background tint */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   
-                  {/* Glow effect border */}
-                  <div className={`absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-[#ff6b35]/50 transition-all duration-300`} />
-                  
-                  <div className="relative overflow-hidden">
+                  {/* Image container */}
+                  <div className="relative overflow-hidden h-52 bg-slate-950">
                     <motion.img 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
-                      style={{ pointerEvents: 'none' }} // Prevent image from intercepting clicks
-                      whileHover={{ 
-                        filter: "brightness(1.2) saturate(1.1)",
-                        transition: { duration: 0.3 }
-                      }}
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                      style={{ pointerEvents: 'none' }}
                     />
                     
-                    {/* Enhanced overlay effect */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                     
-                    {/* Project category badge */}
-                    <motion.div 
-                      className="absolute top-4 left-4"
-                      whileHover={{ scale: 1.05 }}
-                      style={{ pointerEvents: 'none' }} // Ensure badge doesn't block clicks
-                    >
-                      <span className="px-3 py-1 bg-black/90 text-white text-xs rounded-full backdrop-blur-sm border border-white/20">
+                    {/* Category pill */}
+                    <div className="absolute top-4 left-4" style={{ pointerEvents: 'none' }}>
+                      <span className="px-3 py-1 bg-slate-900/90 text-indigo-300 text-xs font-mono rounded-full backdrop-blur-md border border-indigo-500/30">
                         {project.category} • {project.year}
                       </span>
-                    </motion.div>
+                    </div>
                   </div>
                   
                   <div className="p-6 relative z-10 flex flex-col flex-1">
-                    <motion.h3 
-                      className="text-xl font-semibold text-white mb-2 group-hover:text-[#ff6b35] transition-colors duration-300 flex items-start min-h-[3.5rem]"
-                      whileHover={{ x: 5 }}
+                    <h3 
+                      className="text-lg sm:text-xl font-bold font-headline text-white mb-2 group-hover:text-indigo-300 transition-colors duration-300 flex items-start justify-between min-h-[3.25rem]"
                       style={{ pointerEvents: 'none' }}
                     >
-                      {project.title}
-                      <motion.div
-                        className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        animate={{ rotate: hoveredProject === index ? 360 : 0 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <Eye className="h-4 w-4 text-[#ff6b35]" />
-                      </motion.div>
-                    </motion.h3>
+                      <span>{project.title}</span>
+                      <Eye className="h-4 w-4 text-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0 mt-1 ml-2" />
+                    </h3>
                     
-                    <motion.p 
-                      className="text-gray-300 mb-4 group-hover:text-gray-100 transition-colors duration-300"
-                      whileHover={{ scale: 1.02, originX: 0 }}
-                      style={{ pointerEvents: 'none' }} // Ensure text doesn't block clicks
+                    <p 
+                      className="text-slate-300 text-sm leading-relaxed mb-4 font-sans line-clamp-3"
+                      style={{ pointerEvents: 'none' }}
                     >
                       {project.description}
-                    </motion.p>
+                    </p>
 
-                    {/* Enhanced click to view indicator */}
-                    <motion.div 
-                      className="mb-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
-                      initial={{ y: 10, opacity: 0 }}
-                      animate={{ 
-                        y: hoveredProject === index ? 0 : 10,
-                        opacity: hoveredProject === index ? 1 : 0,
-                        transition: { duration: 0.3 }
-                      }}
-                      style={{ pointerEvents: 'none' }} // Ensure indicator doesn't block clicks
-                    >
-                      <div className="flex items-center text-sm font-medium text-[#ff6b35] bg-[#ff6b35]/10 rounded-lg px-3 py-2 border border-[#ff6b35]/20">
-                        <MousePointer className="mr-2 h-4 w-4" />
-                        <span>Click anywhere to view project</span>
+                    {/* Quick view indicator */}
+                    <div className="mt-auto mb-4" style={{ pointerEvents: 'none' }}>
+                      <div className="flex items-center text-xs font-mono text-indigo-400 bg-indigo-500/10 rounded-lg px-3 py-2 border border-indigo-500/20 group-hover:border-indigo-400/40 transition-colors">
+                        <MousePointer className="mr-2 h-3.5 w-3.5" />
+                        <span>Click to open full work sample</span>
                       </div>
-                    </motion.div>
+                    </div>
                     
-                    {/* Tools used section */}
-                    <motion.div 
-                      className="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ 
-                        height: hoveredProject === index ? "auto" : 0,
-                        opacity: hoveredProject === index ? 1 : 0,
-                      }}
-                      style={{ pointerEvents: 'none' }} // Ensure tools section doesn't block clicks
-                    >
-                      <p className="text-xs text-gray-400 mb-2">Tools Used:</p>
-                      <div className="flex flex-wrap gap-1 max-w-full">
-                        {project.tools.map((tool, toolIndex) => (
-                          <span 
-                            key={toolIndex}
-                            className="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded-md"
-                          >
-                            {tool}
-                          </span>
-                        ))}
-                      </div>
-                    </motion.div>
-                    
-                    <div className="flex flex-wrap gap-2 mt-auto pt-2" style={{ pointerEvents: 'none' }}>
+                    {/* Lumina Tag Pills */}
+                    <div className="flex flex-wrap gap-1.5 pt-2 border-t border-indigo-500/15" style={{ pointerEvents: 'none' }}>
                       {project.tags.map((tag, tagIndex) => (
-                        <motion.span 
+                        <span 
                           key={tagIndex}
-                          whileHover={{ 
-                            scale: 1.1,
-                            rotate: 2,
-                            transition: { duration: 0.2 }
-                          }}
-                          className={`px-3 py-1 text-black text-sm rounded-full font-medium transition-all duration-300 ${
+                          className={`px-2.5 py-1 text-xs font-mono font-medium rounded-md border transition-all duration-200 ${
                             tagIndex % 2 === 0 
-                              ? 'bg-[#ff4e4e] hover:bg-[#ff6b35]/80 hover:shadow-lg hover:shadow-[#ff6b35]/50' 
-                              : 'bg-[#fac4a2] hover:bg-[#ff8f50]/80 hover:shadow-lg hover:shadow-[#ff8f50]/50'
+                              ? 'bg-indigo-500/15 text-indigo-300 border-indigo-500/25 group-hover:border-indigo-400/50' 
+                              : 'bg-purple-500/15 text-purple-300 border-purple-500/25 group-hover:border-purple-400/50'
                           }`}
                         >
                           {tag}
-                        </motion.span>
+                        </span>
                       ))}
                     </div>
                   </div>

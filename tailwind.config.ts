@@ -10,7 +10,22 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+        headline: ["'Plus Jakarta Sans'", "sans-serif"],
+        sans: ["'Inter'", "sans-serif"],
+        body: ["'Inter'", "sans-serif"],
+        mono: ["'JetBrains Mono'", "monospace"],
+      },
       colors: {
+        lumina: {
+          primary: "#4F46E5",
+          secondary: "#7C3AED",
+          tertiary: "#0EA5E9",
+          neutral: "#0F172A",
+          bg: "#0B0F19",
+          card: "#111827",
+          border: "rgba(99, 102, 241, 0.2)",
+        },
         background: "var(--background)",
         foreground: "var(--foreground)",
         card: {

@@ -108,19 +108,18 @@ const Hero = () => {
   const backgroundClass = 'stars-bg';
 
   return (
-    <section id="home" className={`min-h-screen flex items-center ${backgroundClass} pt-24`}>
+    <section id="home" className={`min-h-screen flex items-center ${backgroundClass} pt-24 pb-16 relative overflow-hidden`}>
       {/* Optional Shooting Stars */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(3)].map((_, i) => {
-          // Use stable values instead of Math.random()
-          const starTop = 10 + (i * 15) % 40; // Stable positioning
-          const starDuration = 8 + (i * 2); // Stable duration
+          const starTop = 10 + (i * 15) % 40;
+          const starDuration = 8 + (i * 2);
           const starDelay = i * 3;
           
           return (
             <div
               key={i}
-              className="absolute w-1 h-1 bg-white rounded-full opacity-0"
+              className="absolute w-1 h-1 bg-indigo-300 rounded-full opacity-0 shadow-[0_0_8px_#4F46E5]"
               style={{
                 top: `${starTop}%`,
                 left: `-100px`,
@@ -135,8 +134,7 @@ const Hero = () => {
         })}
       </div>
 
-      {/* Hi, I'm Bharath Shetty spacing left side */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center min-h-[calc(100vh-6rem)]">
           <motion.div
             initial={{ opacity: 0, y: -50 }}
@@ -144,11 +142,22 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="order-2 lg:order-1 pl-2 sm:pl-4 md:pl-6 lg:pl-8 text-center sm:text-left"
           >
+            {/* Lumina Executive Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-indigo-500/30 backdrop-blur-md mb-6 shadow-sm"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#4F46E5] animate-pulse shadow-[0_0_8px_#4F46E5]"></span>
+              <span className="text-xs font-mono text-indigo-300 font-medium">Learning Consultant @ LSEG • Bengaluru, India</span>
+            </motion.div>
+
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 mt-6 sm:mt-8 lg:mt-10 leading-tight whitespace-nowrap"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-headline mb-6 sm:mb-8 mt-2 leading-tight whitespace-nowrap tracking-tight"
             >
               Hi, I'm <ReactTypingEffect
                 text={["Bharath Shetty"]} 
@@ -167,46 +176,40 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-8 leading-relaxed"
+              className="text-lg sm:text-xl lg:text-2xl text-slate-200 mb-6 sm:mb-8 leading-relaxed font-headline font-semibold"
             >
-              Senior Technical Instructional Designer II | eLearning Developer | Content Developer
+              Learning Consultant <span className="text-indigo-400">/</span> Instructional Designer <span className="text-violet-400">|</span> AI-Assisted Front-End Developer
             </motion.p>
             
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              className="text-base sm:text-lg text-gray-400 mb-6 sm:mb-8 max-w-2xl leading-relaxed"
+              className="text-base sm:text-lg text-slate-400 mb-8 max-w-2xl leading-relaxed font-sans"
             >
-              Passionate about creating engaging eLearning solutions that transform complex concepts into interactive, memorable experiences using cutting-edge design and development tools.
+              Designing scalable Learning Experience Platforms (LXP) supporting 35,000+ colleagues across LSEG. Combining instructional excellence with AI pair-programming, interactive authoring (Articulate 360), and modern front-end technologies.
             </motion.p>
             
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 mb-8"
             >
               <Button 
-                className="px-4 sm:px-6 py-2 sm:py-3 bg-[#ff6b35] text-white font-semibold hover:bg-[#ff6b35]/80 transition-all duration-300 primary-glow text-sm sm:text-base"
+                className="px-6 py-3.5 bg-gradient-to-r from-[#4F46E5] to-[#6366F1] hover:from-[#4338CA] hover:to-[#4F46E5] text-white font-headline font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-indigo-500/35 hover:shadow-indigo-500/50 hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base border border-indigo-400/30"
                 onClick={() => {
-                  // Always open in new tab for preview (both mobile and desktop)
-                  // Add timestamp to prevent caching issues
                   const timestamp = new Date().getTime();
                   const resumeUrl = `/documents/Bharath_Kumar_GR_Resume.pdf?v=${timestamp}`;
                   
-                  // Create a link element for better control
                   const link = document.createElement('a');
                   link.href = resumeUrl;
                   link.target = '_blank';
                   link.rel = 'noopener noreferrer';
                   
-                  // For mobile devices, force opening in new tab instead of downloading
                   if (window.innerWidth <= 768) {
-                    // Mobile: Open in new tab to preview first
                     window.open(resumeUrl, '_blank', 'noopener,noreferrer');
                   } else {
-                    // Desktop: Use link click for normal behavior
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
@@ -218,10 +221,10 @@ const Hero = () => {
               </Button>
               <Button 
                 variant="outline"
-                className="px-4 sm:px-6 py-2 sm:py-3 glass-effect text-white border-white/20 hover:bg-white/10 transition-all duration-300 text-sm sm:text-base"
+                className="px-6 py-3.5 bg-slate-900/80 hover:bg-indigo-950/40 text-slate-200 border border-indigo-500/30 hover:border-indigo-500/60 font-headline font-medium rounded-xl transition-all duration-300 text-sm sm:text-base hover:-translate-y-0.5 active:translate-y-0 shadow-sm"
                 onClick={scrollToContact}
               >
-                <Mail className="mr-2 h-4 w-4" />
+                <Mail className="mr-2 h-4 w-4 text-indigo-400" />
                 Contact Me
               </Button>
             </motion.div>
@@ -237,7 +240,7 @@ const Hero = () => {
                 { icon: Twitter, href: "https://x.com/Bharath44618051", label: "Twitter" },
                 { icon: Github, href: "https://github.com/GRB-Bharath", label: "GitHub" },
                 { icon: Mail, href: "mailto:bharathb451@gmail.com", label: "Email" },
-              ].map((social, index) => (
+              ].map((social) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
@@ -246,7 +249,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className="w-10 h-10 sm:w-12 sm:h-12 glass-effect rounded-full flex items-center justify-center hover:text-[#ff6b35] transition-all duration-300 primary-glow"
+                  className="w-10 h-10 sm:w-12 sm:h-12 bg-slate-900/80 border border-indigo-500/20 text-slate-300 hover:text-white hover:border-indigo-500/50 hover:bg-indigo-600/20 rounded-xl flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-indigo-500/25"
                   aria-label={social.label}
                 >
                   <social.icon size={16} className="sm:w-5 sm:h-5" />
@@ -263,22 +266,21 @@ const Hero = () => {
           >
             <div className="relative">
               <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px] flex items-center justify-center">
-                {/* Animated background elements */}
-                <div className="absolute w-full h-full">
-                  {/* Gradient orbs */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#ff6b35]/10 to-[#ffb84d]/10 rounded-full blur-2xl animate-pulse-slow"></div>
+                {/* Animated Lumina Multi-Color Gradient Orbs */}
+                <div className="absolute w-full h-full pointer-events-none">
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#4F46E5]/20 via-[#7C3AED]/20 to-[#0EA5E9]/20 rounded-full blur-3xl animate-pulse-slow"></div>
                   
-                  {/* Animated circles */}
+                  {/* Concentric Lumina Rings */}
                   {[...Array(3)].map((_, index) => {
-                    const baseSize = 280; // Base size for mobile
-                    const circleSize = baseSize + index * 30; // Smaller increment for mobile
+                    const baseSize = 280;
+                    const circleSize = baseSize + index * 35;
                     const circleDuration = 8 + index * 2;
                     const circleDelay = index * 0.5;
                     
                     return (
                       <div
                         key={index}
-                        className="absolute left-1/2 top-1/2 border border-[#ff6b35]/20 rounded-full hidden sm:block"
+                        className="absolute left-1/2 top-1/2 border border-indigo-500/20 rounded-full hidden sm:block"
                         style={{
                           width: `${circleSize}px`,
                           height: `${circleSize}px`,
@@ -293,15 +295,16 @@ const Hero = () => {
                     );
                   })}
                   
-                  {/* Sparkles - Enhanced bright orange */}
+                  {/* Sparkles - Lumina Indigo, Violet, Cyan */}
                   {[...Array(12)].map((_, index) => {
-                    const angle = (index * 30) * (Math.PI / 180); // Convert to radians
-                    const baseRadius = 120; // Smaller radius for mobile
-                    const radius = window.innerWidth < 640 ? baseRadius : 200; // Responsive radius
+                    const angle = (index * 30) * (Math.PI / 180);
+                    const baseRadius = 120;
+                    const radius = window.innerWidth < 640 ? baseRadius : 200;
                     const x = Math.cos(angle) * radius;
                     const y = Math.sin(angle) * radius;
-                    const animationDuration = 2 + (index % 3) * 0.5; // Stable duration
-                    const animationDelay = index * 0.15; // Stable delay
+                    const animationDuration = 2 + (index % 3) * 0.5;
+                    const animationDelay = index * 0.15;
+                    const color = index % 3 === 0 ? '#4F46E5' : index % 3 === 1 ? '#7C3AED' : '#0EA5E9';
                     
                     return (
                       <div
@@ -310,8 +313,8 @@ const Hero = () => {
                         style={{
                           left: '50%',
                           top: '50%',
-                          width: window.innerWidth < 640 ? '8px' : '12px',
-                          height: window.innerWidth < 640 ? '8px' : '12px',
+                          width: window.innerWidth < 640 ? '8px' : '10px',
+                          height: window.innerWidth < 640 ? '8px' : '10px',
                           transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
                           animationName: 'sparkleGlow',
                           animationDuration: `${animationDuration}s`,
@@ -321,64 +324,29 @@ const Hero = () => {
                           animationFillMode: 'both'
                         }}
                       >
-                        {/* Main bright orange glow */}
-                        <div className="w-full h-full bg-[#ff6b35] rounded-full shadow-[0_0_20px_#ff6b35,0_0_40px_#ff6b35,0_0_60px_#ff6b35]"></div>
-                        
-                        {/* Inner bright core */}
-                        <div className="absolute inset-1 bg-[#ffaa00] rounded-full shadow-[0_0_10px_#ffaa00]"></div>
-                        
-                        {/* Pulsing outer ring */}
-                        <div className="absolute -inset-1 bg-[#ff6b35] rounded-full animate-ping opacity-60"></div>
-                        
-                        {/* Sharp center point */}
-                        <div className="absolute inset-[40%] bg-white rounded-full opacity-90"></div>
+                        <div 
+                          className="w-full h-full rounded-full shadow-[0_0_15px_currentColor]"
+                          style={{ backgroundColor: color, color: color }}
+                        ></div>
+                        <div className="absolute inset-[30%] bg-white rounded-full opacity-90"></div>
                       </div>
-                    );
-                  })}
-                  
-                  {/* Floating particles */}
-                  {[...Array(8)].map((_, index) => {
-                    const particleLeft = 20 + (index * 10) % 60; // Stable positioning
-                    const particleTop = 15 + (index * 12) % 70;
-                    const particleDuration = 5 + (index % 3); // Stable duration
-                    const particleDelay = index * 0.3;
-                    
-                    return (
-                      <div
-                        key={`particle-${index}`}
-                        className="absolute bg-gradient-to-r from-[#ff6b35]/40 to-[#ffb84d]/20"
-                        style={{
-                          width: '4px',
-                          height: '4px',
-                          borderRadius: '50%',
-                          left: `${particleLeft}%`,
-                          top: `${particleTop}%`,
-                          animationName: 'floatParticle',
-                          animationDuration: `${particleDuration}s`,
-                          animationTimingFunction: 'ease-in-out',
-                          animationIterationCount: 'infinite',
-                          animationDelay: `${particleDelay}s`,
-                          filter: 'blur(1px)'
-                        }}
-                      />
                     );
                   })}
                 </div>
 
-                {/* Main container with glass effect */}
-                <div className="relative w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[340px] md:h-[340px] lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden backdrop-blur-sm bg-gradient-to-br from-white/10 to-white/5 p-3 sm:p-4 hover:scale-102 transition-transform duration-700">
+                {/* Main container with executive glass effect */}
+                <div className="relative w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[340px] md:h-[340px] lg:w-[360px] lg:h-[360px] rounded-full overflow-hidden backdrop-blur-xl bg-gradient-to-br from-indigo-500/15 via-slate-900/90 to-violet-500/15 p-3 sm:p-4 hover:scale-102 transition-transform duration-700 shadow-2xl shadow-indigo-950/50 border border-indigo-500/30">
                   {/* Border glow */}
-                  <div className="absolute inset-0 rounded-full border border-[#ff6b35]/20"></div>
+                  <div className="absolute inset-0 rounded-full border border-indigo-400/30"></div>
                   
                   {/* Image container */}
-                  <div className="relative w-full h-full rounded-full overflow-hidden bg-gradient-to-b from-gray-900/90 to-black/90">
-                    {/* Soft lighting overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#ff6b35]/5 to-transparent mix-blend-overlay"></div>
+                  <div className="relative w-full h-full rounded-full overflow-hidden bg-gradient-to-b from-slate-900/95 to-[#0B0F19]">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-transparent to-violet-500/10 mix-blend-overlay"></div>
                     
-                    {/* Profile image — preloaded & compressed, loads instantly */}
+                    {/* Profile image */}
                     <img 
                       src="/images/B.png"
-                      alt="Bharath Shetty - Senior Instructional Designer" 
+                      alt="Bharath Shetty - Learning Consultant & Instructional Designer" 
                       className="w-full h-full object-cover object-center"
                       style={{ 
                         objectPosition: "center center",
@@ -390,26 +358,34 @@ const Hero = () => {
                       fetchPriority="high"
                     />
                     
-                    {/* Professional lighting effects */}
                     <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-transparent to-black/40"></div>
-                    
-                    {/* Top highlight */}
-                    <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#ff6b35]/10 to-transparent"></div>
+                    <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-indigo-500/10 to-transparent"></div>
                   </div>
                 </div>
+
+                {/* Orbiting Executive Badges */}
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.8 }}
+                  className="absolute -bottom-2 -left-4 sm:-left-6 px-3 py-1.5 rounded-full bg-slate-900/90 border border-indigo-500/40 backdrop-blur-xl shadow-xl shadow-indigo-950/40 hidden sm:flex items-center gap-1.5"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#4F46E5]"></span>
+                  <span className="text-[11px] font-mono font-medium text-slate-200">LXP Dashboard</span>
+                </motion.div>
+
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1 }}
+                  className="absolute -top-2 -right-2 sm:-right-4 px-3 py-1.5 rounded-full bg-slate-900/90 border border-violet-500/40 backdrop-blur-xl shadow-xl shadow-purple-950/40 hidden sm:flex items-center gap-1.5"
+                >
+                  <span className="w-2 h-2 rounded-full bg-[#7C3AED]"></span>
+                  <span className="text-[11px] font-mono font-medium text-slate-200">Synthesia AI</span>
+                </motion.div>
                 
-                {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24">
-                  <div className="relative w-full h-full">
-                    <svg className="absolute animate-ping-slow" width="20" height="20" viewBox="0 0 20 20">
-                      <circle cx="10" cy="10" r="4" fill="#ff6b35" fillOpacity="0.2" />
-                    </svg>
-                  </div>
-                </div>
-                
-                {/* Subtle accent lines */}
-                <div className="absolute top-1/2 left-0 w-12 h-[1px] bg-gradient-to-r from-[#ff6b35]/40 to-transparent transform -translate-x-16"></div>
-                <div className="absolute top-1/2 right-0 w-12 h-[1px] bg-gradient-to-l from-[#ff6b35]/40 to-transparent transform translate-x-16"></div>
+                <div className="absolute top-1/2 left-0 w-12 h-[1px] bg-gradient-to-r from-indigo-500/50 to-transparent transform -translate-x-16"></div>
+                <div className="absolute top-1/2 right-0 w-12 h-[1px] bg-gradient-to-l from-violet-500/50 to-transparent transform translate-x-16"></div>
               </div>
             </div>
           </motion.div>
@@ -425,7 +401,7 @@ export default Hero;
 const style = document.createElement('style');
 style.textContent = `
   .react-typing-effect__cursor {
-    color: #ff6b35;
+    color: #4F46E5;
     font-weight: bold;
     animation: blink 1s step-end infinite;
     margin-left: 2px;
@@ -451,17 +427,16 @@ style.textContent = `
   /* Mobile optimizations */
   @media (max-width: 640px) {
     .text-gradient {
-      background: linear-gradient(135deg, #ff6b35 0%, #ffb84d 100%);
+      background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #0EA5E9 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     
     .sparkle-container {
-      filter: drop-shadow(0 0 4px rgba(255, 107, 53, 0.6)) drop-shadow(0 0 8px rgba(255, 107, 53, 0.4));
+      filter: drop-shadow(0 0 6px rgba(79, 70, 229, 0.6)) drop-shadow(0 0 12px rgba(124, 58, 237, 0.4));
     }
     
-    /* Allow text wrapping on mobile only */
     h2.whitespace-nowrap {
       white-space: normal !important;
       word-break: break-word;
@@ -470,11 +445,11 @@ style.textContent = `
 
   @keyframes pulse-slow {
     0%, 100% {
-      opacity: 0.3;
+      opacity: 0.4;
       transform: scale(1);
     }
     50% {
-      opacity: 0.15;
+      opacity: 0.2;
       transform: scale(1.05);
     }
   }
@@ -493,11 +468,11 @@ style.textContent = `
   @keyframes floatCircle {
     0%, 100% {
       transform: translate(-50%, -50%) rotate(0deg) scale(1);
-      opacity: 0.2;
+      opacity: 0.25;
     }
     50% {
-      transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
-      opacity: 0.3;
+      transform: translate(-50%, -50%) rotate(180deg) scale(1.08);
+      opacity: 0.35;
     }
   }
 
@@ -508,18 +483,18 @@ style.textContent = `
     }
     50% {
       transform: translateY(-20px) scale(1.5);
-      opacity: 0.4;
+      opacity: 0.5;
     }
   }
 
   @keyframes glowPulse {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(255, 107, 53, 0.2),
-                  0 0 60px rgba(255, 107, 53, 0.1);
+      box-shadow: 0 0 20px rgba(79, 70, 229, 0.3),
+                  0 0 60px rgba(124, 58, 237, 0.15);
     }
     50% {
-      box-shadow: 0 0 30px rgba(255, 107, 53, 0.3),
-                  0 0 80px rgba(255, 107, 53, 0.2);
+      box-shadow: 0 0 30px rgba(79, 70, 229, 0.5),
+                  0 0 80px rgba(14, 165, 233, 0.25);
     }
   }
 
@@ -534,19 +509,21 @@ style.textContent = `
     }
   }
 
-      @keyframes sparkleGlow {
-        0%, 100% {
-          opacity: 0.8;
-          transform: scale(0.8);
-          filter: brightness(1.2);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.3);
-          filter: brightness(1.8);
-        }
-      }  .sparkle-container {
-    filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.8)) drop-shadow(0 0 16px rgba(255, 107, 53, 0.6));
+  @keyframes sparkleGlow {
+    0%, 100% {
+      opacity: 0.7;
+      transform: scale(0.8);
+      filter: brightness(1.2);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.3);
+      filter: brightness(1.8);
+    }
+  }
+
+  .sparkle-container {
+    filter: drop-shadow(0 0 8px rgba(79, 70, 229, 0.8)) drop-shadow(0 0 16px rgba(124, 58, 237, 0.6));
   }
 
   .animate-spin-slower {

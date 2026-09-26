@@ -81,63 +81,93 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-24 bg-[#0B0F19] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold text-gradient mb-4">My Experience</h2>
-          <p className="text-xl text-gray-400">Professional journey and key achievements</p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-300 font-mono text-xs mb-3">
+            <span>CAREER TRAJECTORY</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-bold font-headline text-gradient mb-4 tracking-tight">Professional Experience</h2>
+          <p className="text-lg text-slate-400 font-sans max-w-2xl mx-auto">
+            Demonstrated track record of delivering enterprise-scale learning platforms, AI innovations, and global programs
+          </p>
         </motion.div>
         
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#ff6b35] to-[#ff8f50] z-0"></div>
+          {/* Lumina Gradient Center Timeline */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#4F46E5] via-[#7C3AED] to-[#0EA5E9] z-0 rounded-full shadow-[0_0_15px_rgba(79,70,229,0.5)]"></div>
           
-          <div className="relative z-20 space-y-12">
+          <div className="relative z-20 space-y-16">
             {experiences.map((exp, index) => (
               <div key={index} className={`flex flex-col lg:flex-row items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+                {/* Experience Card */}
                 <motion.div
-                  initial={{ opacity: 0, y: index % 2 === 0 ? -50 : 50 }}
+                  initial={{ opacity: 0, y: index % 2 === 0 ? -40 : 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
-                  className={`flex-1 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'} mb-8 lg:mb-0 relative z-30`}
+                  className={`flex-1 ${index % 2 === 0 ? 'lg:pr-10' : 'lg:pl-10'} mb-8 lg:mb-0 relative z-30 w-full`}
                 >
-                  <div className="glass-effect p-6 rounded-2xl hover:primary-glow transition-all duration-300 relative z-30 bg-gray-800/90 backdrop-blur-sm">
-                    <div className="flex items-center mb-4">
-                      <div className={`w-4 h-4 ${index % 2 === 0 ? 'bg-[#ff6b35]' : 'bg-[#ff8f50]'} rounded-full mr-3`}></div>
-                      <span className="text-sm text-gray-400">{exp.period}</span>
-                      <span className="text-xs text-gray-500 ml-2">• {exp.type}</span>
+                  <div className="bg-slate-900/85 p-7 sm:p-8 rounded-2xl border border-indigo-500/20 hover:border-indigo-400/50 hover:shadow-2xl hover:shadow-indigo-950/50 transition-all duration-300 backdrop-blur-xl relative group">
+                    {/* Period & Type Header */}
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-indigo-500/15">
+                      <div className="flex items-center space-x-2">
+                        <span className={`w-3 h-3 rounded-full ${index % 2 === 0 ? 'bg-[#4F46E5] shadow-[0_0_8px_#4F46E5]' : 'bg-[#7C3AED] shadow-[0_0_8px_#7C3AED]'}`}></span>
+                        <span className="text-xs font-mono font-medium text-indigo-300 bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/20">
+                          {exp.period}
+                        </span>
+                      </div>
+                      <span className="text-xs font-mono text-slate-400">
+                        {exp.type}
+                      </span>
                     </div>
-                    <h3 className={`text-2xl font-semibold ${index % 2 === 0 ? 'text-[#ff6b35]' : 'text-[#ff8f50]'} mb-2`}>
+
+                    {/* Role Title & Company */}
+                    <h3 className={`text-xl sm:text-2xl font-bold font-headline mb-1.5 ${index % 2 === 0 ? 'text-white group-hover:text-indigo-200' : 'text-white group-hover:text-purple-200'} transition-colors`}>
                       {exp.title}
                     </h3>
-                    <p className="text-lg text-white font-medium mb-2">{exp.company}</p>
-                    <p className="text-sm text-gray-300 mb-4">{exp.location}</p>
-                    <div className="mb-4">
-                      <span className="text-sm text-gray-200 font-medium">Skills: </span>
-                      <span className="text-sm text-[#ff8f50] font-medium">{exp.skills.join(", ")}</span>
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <p className="text-base sm:text-lg font-semibold text-indigo-400 font-headline">{exp.company}</p>
+                      <span className="text-slate-600">•</span>
+                      <p className="text-xs sm:text-sm text-slate-400 font-sans">{exp.location}</p>
                     </div>
-                    <ul className="space-y-2 text-gray-300">
+
+                    {/* Skills Chips */}
+                    <div className="mb-5 flex flex-wrap gap-1.5 pt-2">
+                      {exp.skills.map((skill, sIdx) => (
+                        <span key={sIdx} className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-slate-800/90 text-indigo-300/90 border border-indigo-500/15">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Achievements List */}
+                    <ul className="space-y-2.5 text-sm sm:text-base text-slate-300 font-sans">
                       {exp.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex}>• {achievement}</li>
+                        <li key={achIndex} className="flex items-start">
+                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-indigo-400 mt-2 mr-2.5 flex-shrink-0"></span>
+                          <span className="leading-relaxed">{achievement}</span>
+                        </li>
                       ))}
                     </ul>
                   </div>
                 </motion.div>
                 
+                {/* Logo Column */}
                 <motion.div
-                  initial={{ opacity: 0, y: index % 2 === 0 ? 50 : -50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.15 }}
                   viewport={{ once: true }}
-                  className={`flex-1 ${index % 2 === 0 ? 'lg:pl-8' : 'lg:pr-8'} relative z-30`}
+                  className={`flex-1 ${index % 2 === 0 ? 'lg:pl-10' : 'lg:pr-10'} relative z-30 flex items-center justify-center`}
                 >
-                  <div className={`w-48 h-48 ${exp.logoBg} rounded-2xl flex items-center justify-center p-3 shadow-xl border border-white/10 ${index % 2 === 0 ? 'mx-auto lg:mr-auto lg:ml-8' : 'mx-auto lg:ml-auto lg:mr-8'} hover:scale-105 transition-all duration-300`}>
+                  <div className={`w-44 h-44 sm:w-48 sm:h-48 ${exp.logoBg} rounded-2xl flex items-center justify-center p-3.5 shadow-2xl border border-indigo-500/30 ${index % 2 === 0 ? 'mx-auto lg:mr-auto lg:ml-8' : 'mx-auto lg:ml-auto lg:mr-8'} hover:scale-105 transition-all duration-300 shadow-indigo-950/40`}>
                     <img 
                       src={exp.logo} 
                       alt={exp.logoAlt} 
