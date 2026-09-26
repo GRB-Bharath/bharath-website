@@ -22,7 +22,7 @@ const Portfolio = () => {
       title: "Interactive eLearning Module",
       description: "Comprehensive learning platform develop using Adobe Captivate Tool and added Interactive Quiz.",
       image: "https://elearningimages.adobe.com/files/2023/07/Discover-all-new-Adobe-Captivate-Allen.jpg",
-      tags: ["Adobe Captivate Tool", "LMS"],
+      tags: ["Adobe Captivate", "LMS"],
       hoverClass: "hover:primary-glow",
       projectUrl: "#",
       githubUrl: "#",
@@ -36,7 +36,7 @@ const Portfolio = () => {
       title: "About Us Video created for Entire Organization",
       description: "Created a compelling About Us video for the entire organization to the client AI Certs to enhance customer communication and engagement.",
       image: "/images/Aicerts.png",
-      tags: ["synthesia", "UI/UX", "Adobe illustrator"],
+      tags: ["Synthesia", "UI/UX", "Illustrator"],
       hoverClass: "hover:orange-glow",
       projectUrl: "#",
       githubUrl: "#",
@@ -50,7 +50,7 @@ const Portfolio = () => {
       title: "Storyboard Development",
       description: "Visual narrative planning for complex educational content and learning pathways.",
       image: "/images/time.png",
-      tags: ["Storyboard", "Planning", "Microsoft PowerPoint"],
+      tags: ["Storyboard", "Planning", "PowerPoint"],
       hoverClass: "hover:primary-glow",
       projectUrl: "#",
       githubUrl: "#",
@@ -255,7 +255,7 @@ const Portfolio = () => {
                       {project.tags.map((tag, tagIndex) => (
                         <span 
                           key={tagIndex}
-                          className={`px-2.5 py-1 text-xs font-mono font-medium rounded-md border transition-all duration-200 ${
+                          className={`px-2 py-0.5 text-xs font-mono font-medium rounded-md border transition-all duration-200 whitespace-nowrap ${
                             tagIndex % 2 === 0 
                               ? 'bg-indigo-50 dark:bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-500/25 group-hover:border-indigo-400/50' 
                               : 'bg-purple-50 dark:bg-purple-500/15 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-500/25 group-hover:border-purple-400/50'
