@@ -207,9 +207,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
-    padding-bottom: 0.2em;
-    padding-top: 0.05em;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
@@ -219,9 +216,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
-    padding-bottom: 0.2em;
-    padding-top: 0.05em;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
@@ -231,9 +225,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
-    padding-bottom: 0.2em;
-    padding-top: 0.05em;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }
@@ -243,9 +234,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
-    padding-bottom: 0.2em;
-    padding-top: 0.05em;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
   }

@@ -98,13 +98,13 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="flex flex-col items-center text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide uppercase bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/30 mb-4">
+          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium tracking-wide uppercase bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/30 mb-4 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" aria-hidden="true" />
             Connect & Collaborate
           </span>
-          <h2 id="contact-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold font-headline text-gradient pb-2 mb-6 tracking-tight leading-normal sm:leading-tight">
+          <h2 id="contact-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold font-headline text-gradient pb-1 mb-4 tracking-tight leading-normal sm:leading-tight">
             Let's Build Something Exceptional
           </h2>
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto leading-relaxed">
