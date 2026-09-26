@@ -86,8 +86,8 @@ const Navigation = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Brand Mark */}
+        <div className="relative flex items-center justify-between h-20">
+          {/* Brand Mark (Left) */}
           <div
             role="button"
             tabIndex={0}
@@ -99,7 +99,7 @@ const Navigation = () => {
               }
             }}
             onClick={() => scrollToSection("home")}
-            className="flex-shrink-0 flex items-center space-x-3 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl p-1"
+            className="flex-shrink-0 flex items-center space-x-3 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl p-1 z-10"
           >
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#4F46E5] to-[#7C3AED] flex items-center justify-center shadow-md shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
               <span className="text-white font-headline font-bold text-sm tracking-wider" aria-hidden="true">
@@ -116,9 +116,12 @@ const Navigation = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav aria-label="Main Navigation" className="hidden md:flex items-center space-x-2">
-            <div className="flex items-center space-x-1 lg:space-x-1.5 bg-slate-100/90 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-200/80 dark:border-indigo-500/20 backdrop-blur-md">
+          {/* Desktop Navigation - Centered (Home to Contact) */}
+          <nav
+            aria-label="Main Navigation"
+            className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center pointer-events-auto"
+          >
+            <div className="flex items-center space-x-1 lg:space-x-1.5 bg-slate-100/90 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-200/80 dark:border-indigo-500/20 backdrop-blur-md shadow-sm">
               {navItems.map((item, index) => (
                 <motion.button
                   key={item.id}
@@ -126,14 +129,17 @@ const Navigation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
                   onClick={() => scrollToSection(item.id)}
-                  className="px-3.5 py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:bg-white dark:hover:bg-indigo-600/15 rounded-full transition-all duration-200 relative group focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none"
+                  className="px-3 lg:px-3.5 py-1.5 text-xs lg:text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-white hover:bg-white dark:hover:bg-indigo-600/15 rounded-full transition-all duration-200 relative group focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:outline-none cursor-pointer"
                 >
                   {item.label}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-[#4F46E5] to-[#7C3AED] transition-all duration-300 group-hover:w-3/5 rounded-full" aria-hidden="true" />
                 </motion.button>
               ))}
             </div>
+          </nav>
 
+          {/* Right Controls: Theme Toggle & Quick CTA (Desktop) */}
+          <div className="hidden md:flex items-center space-x-2 z-10">
             {/* Theme Toggle Button (Light/Dark Mode) */}
             <button
               type="button"
@@ -175,7 +181,7 @@ const Navigation = () => {
             >
               Get in Touch
             </button>
-          </nav>
+          </div>
 
           {/* Mobile Right Controls: Theme Toggle & Menu Toggle */}
           <div className="md:hidden flex items-center space-x-2">

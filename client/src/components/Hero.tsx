@@ -140,7 +140,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="order-2 lg:order-1 pl-2 sm:pl-4 md:pl-6 lg:pl-8 text-center sm:text-left"
+            className="order-2 lg:order-1 sm:pl-2 lg:pl-4 text-center sm:text-left"
           >
             {/* Status Badge */}
             <motion.div
@@ -153,24 +153,27 @@ const Hero = () => {
               <span className="text-xs font-mono text-indigo-700 dark:text-indigo-300 font-medium">Learning Consultant @ LSEG • Bengaluru, India</span>
             </motion.div>
 
-            {/* Semantic h1 for WCAG AA */}
+            {/* Semantic h1 for WCAG AA - strictly 1st line */}
             <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-headline mb-6 sm:mb-8 mt-2 leading-tight tracking-tight text-slate-900 dark:text-white"
+              className="text-2xl min-[380px]:text-[1.7rem] sm:text-3xl md:text-4xl lg:text-[2.5rem] xl:text-5xl font-bold font-headline mb-4 sm:mb-6 mt-2 leading-tight tracking-tight text-slate-900 dark:text-white whitespace-nowrap overflow-visible flex items-baseline justify-center sm:justify-start gap-1.5 sm:gap-2.5"
             >
-              Hi, I'm <ReactTypingEffect
-                text={["Bharath Shetty"]}
-                speed={100}
-                eraseSpeed={100}
-                eraseDelay={3000}
-                typingDelay={1000}
-                cursor="|"
-                displayTextRenderer={(text) => {
-                  return <span className="text-gradient">{text}</span>;
-                }}
-              />
+              <span className="whitespace-nowrap flex-shrink-0">Hi, I'm</span>
+              <span className="whitespace-nowrap flex-shrink-0 inline-block">
+                <ReactTypingEffect
+                  text={["Bharath Shetty"]}
+                  speed={100}
+                  eraseSpeed={100}
+                  eraseDelay={3000}
+                  typingDelay={1000}
+                  cursor="|"
+                  displayTextRenderer={(text) => {
+                    return <span className="text-gradient whitespace-nowrap">{text}</span>;
+                  }}
+                />
+              </span>
             </motion.h1>
 
             <motion.p
