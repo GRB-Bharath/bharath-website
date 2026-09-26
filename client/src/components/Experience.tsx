@@ -170,11 +170,11 @@ const Experience = () => {
                   viewport={{ once: true }}
                   className={`flex-1 ${index % 2 === 0 ? 'lg:pl-10' : 'lg:pr-10'} relative z-30 flex items-center justify-center`}
                 >
-                  <div className={`w-44 h-44 sm:w-48 sm:h-48 ${exp.logoBg} rounded-2xl flex items-center justify-center p-3.5 shadow-xl border border-slate-200/90 dark:border-indigo-500/30 ${index % 2 === 0 ? 'mx-auto lg:mr-auto lg:ml-8' : 'mx-auto lg:ml-auto lg:mr-8'} hover:scale-105 transition-all duration-300 shadow-slate-200/50 dark:shadow-indigo-950/40`}>
+                  <div className={`w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 ${exp.logoBg} rounded-3xl flex items-center justify-center ${exp.company === 'London Stock Exchange Group (LSEG)' || exp.company === 'LSEG' ? 'p-3 sm:p-4' : 'p-6 sm:p-8'} shadow-2xl border border-slate-200/90 dark:border-indigo-500/30 ${index % 2 === 0 ? 'mx-auto lg:mr-auto lg:ml-8' : 'mx-auto lg:ml-auto lg:mr-8'} hover:scale-105 transition-all duration-300 shadow-slate-300/50 dark:shadow-indigo-950/60`}>
                     <img 
                       src={exp.logo} 
                       alt={exp.logoAlt} 
-                      className="w-full h-full object-contain rounded-xl"
+                      className="w-full h-full object-contain rounded-2xl"
                     />
                   </div>
                 </motion.div>
