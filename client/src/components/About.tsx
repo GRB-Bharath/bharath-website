@@ -26,7 +26,7 @@ import {
   ClaudeCodeIcon, 
   HeyGenIcon 
 } from "@/components/ui/ai-tool-icons";
-import { Layers, Video, Code, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 const About = () => {
   // Authoring & Multimedia Tools
@@ -70,34 +70,6 @@ const About = () => {
     { value: "WCAG AA", label: "Accessible Courseware Standard" },
   ];
 
-  // Core Practice Pillars
-  const practicePillars = [
-    {
-      icon: Layers,
-      title: "LXP Front-End & Platform Architecture",
-      description: "Engineering tailored dashboard landing pages, search portals, and scalable learning front-ends supporting 35,000+ colleagues across LSEG.",
-      color: "text-indigo-600 dark:text-indigo-400",
-      bg: "bg-indigo-50 dark:bg-indigo-500/10",
-      border: "border-indigo-200 dark:border-indigo-500/20"
-    },
-    {
-      icon: Video,
-      title: "AI Video Production & Prompt Engineering",
-      description: "Producing AI-generated video curriculum for global leadership programs using Synthesia, accelerating delivery while elevating engagement.",
-      color: "text-violet-600 dark:text-violet-400",
-      bg: "bg-violet-50 dark:bg-violet-500/10",
-      border: "border-violet-200 dark:border-violet-500/20"
-    },
-    {
-      icon: Code,
-      title: "Interactive Courseware & JavaScript Simulations",
-      description: "Developing advanced Articulate Storyline 360 & Rise 360 suites with custom JavaScript triggers, data governance modules, and SCORM/xAPI tracking.",
-      color: "text-sky-600 dark:text-sky-400",
-      bg: "bg-sky-50 dark:bg-sky-500/10",
-      border: "border-sky-200 dark:border-sky-500/20"
-    }
-  ];
-
   return (
     <section id="about" aria-labelledby="about-heading" className="py-24 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -122,92 +94,100 @@ const About = () => {
           </p>
         </motion.div>
         
-        {/* Top Profile & Narrative Grid - Balanced 2-Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-20">
+        {/* Top Profile & Narrative Grid - Balanced 2-Column Side-by-Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch mb-10">
           
-          {/* Left Column: Photo Card & Key Metrics */}
+          {/* Left Column: Photo Card */}
           <motion.div
-            initial={{ opacity: 0, y: -30 }}
+            initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="lg:col-span-5 space-y-6"
+            className="lg:col-span-5 h-full"
           >
-            {/* Elevated Photo Card */}
-            <div className="bg-white/90 dark:bg-slate-900/80 p-3 rounded-3xl border border-slate-200/90 dark:border-indigo-500/25 shadow-xl shadow-slate-200/50 dark:shadow-indigo-950/40 relative overflow-hidden backdrop-blur-xl group">
+            <div className="bg-white/90 dark:bg-slate-900/80 p-3 sm:p-4 rounded-3xl border border-slate-200/90 dark:border-indigo-500/25 shadow-xl shadow-slate-200/50 dark:shadow-indigo-950/40 relative overflow-hidden backdrop-blur-xl group h-full flex flex-col justify-center">
               <div className="absolute inset-0 bg-gradient-to-tr from-[#4F46E5]/15 via-transparent to-[#7C3AED]/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <img
                 src="/images/about me image.png"
                 alt="Bharath Shetty - Learning Consultant and Instructional Designer"
-                className="rounded-2xl shadow-xl w-full object-cover max-h-[440px] transition-transform duration-500 group-hover:scale-[1.02]"
+                className="rounded-2xl shadow-xl w-full h-full object-cover object-top max-h-[440px] sm:max-h-[480px] transition-transform duration-500 group-hover:scale-[1.02]"
                 loading="eager"
                 decoding="async"
               />
             </div>
-
-            {/* Quick Impact Stats Grid (Balanced under photo) */}
-            <div className="grid grid-cols-2 gap-3.5">
-              {impactStats.map((stat, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white/90 dark:bg-slate-900/80 p-4 rounded-2xl border border-slate-200/90 dark:border-indigo-500/20 backdrop-blur-xl text-center shadow-md hover:border-indigo-500/40 transition-colors"
-                >
-                  <span className="text-2xl sm:text-3xl font-bold font-headline text-gradient block tracking-tight">
-                    {stat.value}
-                  </span>
-                  <span className="text-xs text-slate-600 dark:text-slate-400 font-sans font-medium mt-1 block leading-snug">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </div>
           </motion.div>
           
-          {/* Right Column: Narrative & Practice Pillars */}
+          {/* Right Column: Executive Overview Narrative Card */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
             viewport={{ once: true }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 h-full"
           >
-            {/* Bio Narrative Card */}
-            <div className="bg-white/90 dark:bg-slate-900/80 p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-indigo-500/20 backdrop-blur-xl shadow-xl space-y-4">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" aria-hidden="true" />
-                <span className="text-xs font-mono uppercase tracking-wider text-indigo-700 dark:text-indigo-300 font-semibold">Executive Overview</span>
-              </div>
-              <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-                Results-driven <b className="text-slate-900 dark:text-white font-semibold">Learning Consultant & Technical Instructional Designer</b> currently at <b className="text-indigo-600 dark:text-indigo-400 font-semibold">London Stock Exchange Group (LSEG)</b>. I design and build end-to-end Learning Experience Platforms (LXP) supporting 35,000+ colleagues, blending instructional design principles with AI pair-programming and modern front-end engineering.
-              </p>
-              <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
-                From developing interactive <b className="text-slate-900 dark:text-white font-semibold">Workspace AI Search modules</b> and <b className="text-slate-900 dark:text-white font-semibold">Data Governance suites</b> to producing globally rolled-out AI video programs using <b className="text-violet-600 dark:text-violet-400 font-semibold">Synthesia</b>, I specialize in crafting accessible, compliant, and deeply engaging learning experiences that achieve measurable business outcomes.
-              </p>
-            </div>
-            
-            {/* Core Practice Pillars */}
-            <div className="space-y-3.5">
-              {practicePillars.map((pillar, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white/90 dark:bg-slate-900/70 p-5 rounded-2xl border border-slate-200/90 dark:border-indigo-500/20 backdrop-blur-xl shadow-md hover:border-indigo-500/40 transition-all duration-200 flex items-start gap-4"
-                >
-                  <div className={`p-3 rounded-xl ${pillar.bg} ${pillar.border} border flex-shrink-0 mt-0.5`}>
-                    <pillar.icon className={pillar.color} size={24} aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold font-headline text-slate-900 dark:text-slate-100 mb-1">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                      {pillar.description}
-                    </p>
-                  </div>
+            <div className="bg-white/90 dark:bg-slate-900/80 p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-indigo-500/20 backdrop-blur-xl shadow-xl h-full flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" aria-hidden="true" />
+                  <span className="text-xs font-mono uppercase tracking-wider text-indigo-700 dark:text-indigo-300 font-semibold">Executive Overview</span>
                 </div>
-              ))}
+                <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+                  Results-driven <b className="text-slate-900 dark:text-white font-semibold">Learning Consultant & Technical Instructional Designer</b> currently at <b className="text-indigo-600 dark:text-indigo-400 font-semibold">London Stock Exchange Group (LSEG)</b>. I design and build end-to-end Learning Experience Platforms (LXP) supporting 35,000+ colleagues, blending instructional design principles with AI pair-programming and modern front-end engineering.
+                </p>
+                <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-sans">
+                  From developing interactive <b className="text-slate-900 dark:text-white font-semibold">Workspace AI Search modules</b> and <b className="text-slate-900 dark:text-white font-semibold">Data Governance suites</b> to producing globally rolled-out AI video programs using <b className="text-violet-600 dark:text-violet-400 font-semibold">Synthesia</b>, I specialize in crafting accessible, compliant, and deeply engaging learning experiences that achieve measurable business outcomes.
+                </p>
+              </div>
+
+              {/* Core Competencies Badges */}
+              <div className="pt-4 border-t border-slate-200 dark:border-indigo-500/15">
+                <p className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2.5 font-semibold">
+                  Core Specializations
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "LXP Front-End Architecture",
+                    "AI Pair-Programming",
+                    "Articulate 360 & Rise",
+                    "SCORM & xAPI Tracking",
+                    "WCAG 2.1 AA Compliance",
+                    "Rapid Interactive Prototyping"
+                  ].map((skill, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs font-medium px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-indigo-950/40 text-slate-800 dark:text-indigo-200 border border-slate-200 dark:border-indigo-500/25 shadow-sm"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
+
+        {/* Enterprise Impact Metrics Ribbon */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16"
+        >
+          {impactStats.map((stat, idx) => (
+            <div
+              key={idx}
+              className="bg-white/90 dark:bg-slate-900/80 p-5 sm:p-6 rounded-2xl border border-slate-200/90 dark:border-indigo-500/20 backdrop-blur-xl text-center shadow-md hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 group"
+            >
+              <span className="text-3xl sm:text-4xl font-bold font-headline text-gradient block tracking-tight group-hover:scale-105 transition-transform duration-300">
+                {stat.value}
+              </span>
+              <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-sans font-medium mt-1.5 block leading-snug">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
 
         {/* Bottom Full-Width Section: Specialized Tool & Technology Ecosystem */}
         <motion.div
