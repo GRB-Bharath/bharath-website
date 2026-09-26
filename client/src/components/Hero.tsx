@@ -361,7 +361,7 @@ const Hero = () => {
                       }}
                       loading="eager"
                       decoding="sync"
-                      fetchPriority="high"
+                      {...({ fetchpriority: "high" } as any)}
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-transparent to-black/40"></div>
