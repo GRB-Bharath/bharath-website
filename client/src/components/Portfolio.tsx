@@ -88,6 +88,20 @@ const Portfolio = () => {
       tools: ["Instructional Design", "Storyboarding", "Content Development"],
       isClickable: true
     },
+    {
+      title: "Manager 1:1 Conversation Storyboard",
+      description: "An interactive branching scenario storyboard guiding managers through difficult 1-on-1 performance conversations with a behavior-first framework.",
+      image: "/images/manager-storyboard-cover.jpg",
+      tags: ["Manager 1:1", "Scenario", "Storyboard", "PDF"],
+      hoverClass: "hover:primary-glow",
+      projectUrl: "#",
+      githubUrl: "#",
+      fileUrl: "/documents/Manager Conversation Storyboard 1-1.pdf",
+      category: "Scenario Simulation",
+      year: "2026",
+      tools: ["Instructional Design", "Scenario-Based Learning", "Storyboarding"],
+      isClickable: true
+    },
     // {
     //   title: "Educational Video Series",
     //   description: "Professional video content creation for enhanced learning experiences.",

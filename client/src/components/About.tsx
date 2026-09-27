@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
-import { 
-  CamtasiaIcon, 
-  SynthesiaIcon, 
-  AdobeCaptivateIcon, 
-  ArticulateStorylineIcon, 
-  CanvaIcon, 
-  FigmaIcon 
+import {
+  CamtasiaIcon,
+  SynthesiaIcon,
+  AdobeCaptivateIcon,
+  ArticulateStorylineIcon,
+  CanvaIcon,
+  FigmaIcon
 } from "@/components/ui/tool-icons";
-import { 
-  HTMLIcon, 
-  CSSIcon, 
-  JavaScriptIcon, 
-  PythonIcon, 
-  SQLIcon, 
-  AWSIcon 
+import {
+  HTMLIcon,
+  CSSIcon,
+  JavaScriptIcon,
+  PythonIcon,
+  SQLIcon,
+  AWSIcon
 } from "@/components/ui/tech-icons";
-import { 
-  ChatGPTIcon, 
-  ClaudeIcon, 
-  GeminiIcon, 
-  CopilotIcon, 
-  MidJourneyIcon, 
-  CursorIcon, 
-  N8NIcon, 
-  ClaudeCodeIcon, 
-  HeyGenIcon 
+import {
+  ChatGPTIcon,
+  ClaudeIcon,
+  GeminiIcon,
+  CopilotIcon,
+  MidJourneyIcon,
+  CursorIcon,
+  N8NIcon,
+  ClaudeCodeIcon,
+  HeyGenIcon
 } from "@/components/ui/ai-tool-icons";
 import { CheckCircle2 } from "lucide-react";
 
@@ -73,7 +73,7 @@ const About = () => {
   return (
     <section id="about" aria-labelledby="about-heading" className="py-24 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -90,13 +90,13 @@ const About = () => {
             About Me
           </h2>
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 font-sans max-w-2xl mx-auto leading-relaxed">
-            Blending instructional methodology with AI-assisted software engineering to build transformative, enterprise-grade learning systems
+            Blending instructional methodology with AI-assisted Instructional Designer to build transformative, enterprise-grade learning systems
           </p>
         </motion.div>
-        
+
         {/* Top Profile & Narrative Grid - Balanced 2-Column Side-by-Side */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch mb-10">
-          
+
           {/* Left Column: Photo Card */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -116,7 +116,7 @@ const About = () => {
               />
             </div>
           </motion.div>
-          
+
           {/* Right Column: Executive Overview Narrative Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -211,7 +211,7 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            
+
             {/* Authoring & Multimedia Tools (Large Icons) */}
             <div className="bg-white/90 dark:bg-slate-900/80 p-6 rounded-3xl border border-slate-200/90 dark:border-indigo-500/25 backdrop-blur-xl shadow-xl flex flex-col justify-between">
               <div>
